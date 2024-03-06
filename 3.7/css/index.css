@@ -1,0 +1,33 @@
+body{
+    background: #fdfefd;
+   
+}
+*{
+    list-style: none;
+    text-decoration: none;
+}
+table {
+    width: 300px;
+    border-collapse: collapse;
+}
+th span{
+    float: left;
+text-indent: 25px;
+margin: 5px 0px;
+
+}
+th {
+    border: 1px solid black;
+}
+td {
+    border: 1px solid black;
+}
+td ul{
+    text-indent: -27px;
+}
+td ul li a{
+    color: black;
+}
+td ul li a:hover{
+  text-decoration: underline;
+}
