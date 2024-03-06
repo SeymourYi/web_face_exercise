@@ -1,0 +1,35 @@
+/* .header{
+} */
+*{
+    text-decoration: none;
+    /* padding: 0;
+    margin: 0; */
+}
+.header_line_first{
+    width: 100%;
+    height: 2px;
+    background: #e5943c;
+}
+.header_content{
+    /* background: #6a6c68; */
+}
+.header_line_last{
+    width: 100%;
+    height: 1px;
+    background: #444444;
+}
+.header_content,span{
+    margin: 0px 15px;
+}
+.header_content,span,a{
+    line-height: 37px;
+    color: #444444
+}
+.header_content span:hover{
+    margin: 0px 0px;
+    padding: 7px 15px;
+    background: #edeeec;
+}
+.header_content span a:hover{
+color: #e5943c;
+}
