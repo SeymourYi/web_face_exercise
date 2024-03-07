@@ -2,6 +2,9 @@
      margin: 0;
      padding: 0;
 }
+body{
+    background: #fafafa;
+}
 .w{
     width: 1200px;
     margin: auto;
@@ -183,6 +186,87 @@ margin: 20px;
 
 }
 .goods ul li{
-    
     float: left;
+}
+.box_hd h3{
+    float: left;
+    font-size: 29px;
+    color: #2b3039;
+}
+.box_hd a{
+    float: right;
+    font-size: 12px;
+    margin-top: 10px;
+    color: #a5a5;
+    margin-right: 30px;
+}
+.box_hd{
+    margin-top: 35px;
+    height: 80px;
+}
+.box_bd{
+    height: 615px;
+}
+.box_bd ul{
+    width: 1225px;
+}
+.box_bd ul li{
+    float: left;
+    height: 270px;
+    width: 230px;
+    background: white;
+    margin-right: 15px;
+    margin-bottom: 15px;
+}
+.box_bd ul li img{
+    width: 100%;
+}
+.box_bd ul li h4{
+   margin: 20px 15px;
+}
+.box_bd .info{
+    margin: 0px 20px 40px 20px;
+    font-size: 12px;
+}
+.box_bd .info span:nth-child(1){
+    color: #fd9d4a;
+}
+.box_bd .info span:nth-child(2){
+color: gray;
+}
+.foot{
+    height: 418px;
+    background: white;
+
+}
+.foot .w{
+    
+    padding: 30px;
+}
+.copylift{
+float: left;
+}
+.copyright{
+    background: white;
+float: right;
+}
+.copylift p{
+    font-size: 12px;
+    color: gray;
+    margin: 20px 0px 15px 0px;
+}
+.copylift a{
+    font-weight: 500;
+    text-align: center;
+    line-height: 40px;
+    font-size: 16px;
+    color: #01a5fc;
+    display: block;
+    width: 120px;
+    height: 40px;
+    border: 2px solid #01a5fc;
+}
+.copyright dl{
+    float: right;
+    margin-left: 150px;
 }
