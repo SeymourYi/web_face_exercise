@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>土豆网鼠标经过显示遮罩</title>
+    <style>
+.tudou{
+    position: relative;
+    width: 640px;
+    height: 320px;
+    background: blue;
+    margin: 30px auto;
+}
+.tudou img{
+    width: 100%;
+    height: 100%;
+}
+.mask{
+    display: none;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.3) url(./img/播放_play-one.png) no-repeat center;
+    top: 0px;
+    left: 0px;
+}
+.tudou:hover .mask{
+    display: block;
+}
+    </style>
+
+</head>
+
+<body>
+    <div class="tudou">
+        <div class="mask"></div>
+        <img src="./img/g574481acdf3582528f4eab08878ef891971caa178f04633e68dc75fe915381e68ebdc55d20028638d80105549886aa76b479d2d55b6e857cdce5a0886d1cec9a_1280.jpeg" alt="">
+    </div>
+</body>
+</html>
