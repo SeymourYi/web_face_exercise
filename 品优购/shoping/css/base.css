@@ -10,6 +10,9 @@ a{
     text-decoration: none;
     color: black;
 }
+a:hover{
+    color: red;
+}
 button,input{
     border: 0px;
     outline: none;
