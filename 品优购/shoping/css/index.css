@@ -1,0 +1,116 @@
+.main{
+    width: 980px;
+    height: 455px;
+    margin-left: 220px;
+    margin-top: 10px;
+    /* background: blue; */
+}
+.focus{
+    float: left;
+    width: 721px;
+    height: 455px;
+    background-color: aqua;
+}
+.newsflash{
+    float: right;
+    width: 250px;
+    height: 455px;
+    /* background-color: wheat; */
+}
+.news{
+    border: 1px solid #e2e3e2;
+    height: 165px;
+    /* background-color: antiquewhite; */
+}
+.lifeservice{
+    overflow: hidden;
+    height: 209px;
+    border: 1px solid #e2e3e2;
+}
+.bargain{
+margin-top: 5px;
+}
+.news_hd{
+    padding: 0px 15px;
+    text-align: center;
+    font-size: 14px;
+    line-height: 33px;
+    height: 33px;
+    border-bottom: 1px solid #e2e3e2;
+}
+.news_hd h5{
+    float: left;
+}
+.news_hd .more{
+    float: right;
+}
+.news_hd .more::after{
+    content: "👇";
+}
+.news_bd ul{
+margin-left: 5px;
+}
+.news_bd ul li{
+    height: 24px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.news_bd ul li a{
+    font-size: 12px;
+}
+.lifeservice ul li{
+    text-align: center;
+width: 63px;
+height: 71px;
+border-bottom: 1px solid #e2e3e2;
+border-right: 1px solid #e2e3e2;
+float: left;
+}
+.lifeservice ul{
+    width: 252px;
+
+}
+.lifeservice ul li i{
+    display: inline-block;
+    width: 24px;
+    height: 28px;
+    margin-top: 12px;
+    background: url(../images/icons.png) no-repeat -19px -15px;
+}
+.recom{
+    height: 163px;
+    background: #ebebeb;
+    margin-top: 12px;
+}
+.recom_hd{
+    padding-top: 45px;
+    float: left;
+    text-align: center;
+    height: 163px;
+    width: 205px;
+    background-color: rgb(67, 55, 55);
+}
+.recom_bd{
+    float: left;
+}
+.recom_bd ul li{
+    position: relative;
+    float: right;
+}
+.recom_bd ul li image{
+width: 248px;
+height: 163px;
+}
+.recom_hd div{
+    margin-top: 2px;
+    color: white;
+}
+.recom_bd ul li:nth-child(n+2)::after{
+    content: "";
+    height: 145px;
+    width: 1px;
+    position: absolute;
+    top: 10px;
+    background: rgb(59, 46, 46);
+}
