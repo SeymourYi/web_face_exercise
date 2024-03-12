@@ -1,13 +1,14 @@
-<script  lang="ts">
+<script  lang="ts" setup name = "person_123">
  
-export default{
-  name:'person',
-  setup(){
+// export default{
+//   name:'person',
+  // setup(){
     let name = '张三'
     let age = 18
     let tel= 123123445
 
-
+    // npm i vite-plugin-vue-setup-extend -D
+    // 在vite.config.ts中要引入
      function changeName() {
       console.log("李四");
       
@@ -21,8 +22,8 @@ function showTel() {
   console.log(tel);
   
 }
-return{name,age,changeName,changeAge,showTel}
-}}
+// return{name,age,changeName,changeAge,showTel}
+// }}
 //   data() {
 //     return {
 //       name:'张三',
