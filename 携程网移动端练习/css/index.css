@@ -1,0 +1,10 @@
+body {
+  Max-width: 540px;
+  min-width: 320px;
+  margin: 0 auto;
+  font: normal 14px/1.5 Tahoma, "Lucida Grande", Verdana, "MicrosoftYahei" sTXihei hei;
+  color: #000;
+  background: #c62b2b;
+  overflow-x: hidden;
+  -webkit-tap-highlight-color: transparent;
+}
