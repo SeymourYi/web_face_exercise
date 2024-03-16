@@ -1,0 +1,42 @@
+  @color: deeppink;
+  @font14: 14px;
+  @border: 5px+50;
+
+  body {
+    // background-color: @color ;
+  }
+
+  // div {
+  //   color: @color;
+  //   font-size: @font14;
+  // }
+
+  a {
+    font-size: @font14;
+  }
+
+  //单位不同时异地一个单位为准
+  .header {
+    width: 220px+100;
+    height: 200px*2;
+    background-color: #ccc;
+    border: @border solid #00aeec;
+
+    a {
+      color: red;
+
+      &:hover {
+        color: black;
+      }
+
+      &::before {
+        content: "👆";
+      }
+    }
+  }
+
+  .nav {
+    .logo {
+      color: aquamarine;
+    }
+  }

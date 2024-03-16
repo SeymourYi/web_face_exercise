@@ -1,0 +1,21 @@
+a {
+  font-size: 14px;
+}
+.header {
+  width: 320px;
+  height: 400px;
+  background-color: #ccc;
+  border: 55px solid #00aeec;
+}
+.header a {
+  color: red;
+}
+.header a:hover {
+  color: black;
+}
+.header a::before {
+  content: "👆";
+}
+.nav .logo {
+  color: aquamarine;
+}
