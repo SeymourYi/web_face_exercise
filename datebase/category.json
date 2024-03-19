@@ -1,0 +1,34 @@
+[
+  {
+    "id": 1,
+    "category_name": "人文",
+    "category_alias": "rw",
+    "create_user": 3,
+    "create_time": "2024-01-22 00:20:21",
+    "update_time": "2024-01-22 00:20:21"
+  },
+  {
+    "id": 2,
+    "category_name": "军事",
+    "category_alias": "junshi",
+    "create_user": 3,
+    "create_time": "2024-01-22 02:01:52",
+    "update_time": "2024-01-22 21:34:38"
+  },
+  {
+    "id": 3,
+    "category_name": "实时",
+    "category_alias": "shishi",
+    "create_user": 3,
+    "create_time": "2024-01-22 21:29:16",
+    "update_time": "2024-01-22 21:29:16"
+  },
+  {
+    "id": 4,
+    "category_name": "美食",
+    "category_alias": "meishi",
+    "create_user": 3,
+    "create_time": "2024-01-22 21:34:04",
+    "update_time": "2024-01-22 21:34:04"
+  }
+]
