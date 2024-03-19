@@ -15,8 +15,8 @@ import { RouterView,RouterLink } from "vue-router";
 <div class="home">
   <section>
   <ul class="NaviLines">
-    <li ><RouterLink active-class="activity" to="HomePage/mainarea">为你推荐</RouterLink></li>
-    <li ><RouterLink active-class="activity" to="HomePage/folwingarea">正在关注</RouterLink></li>
+    <li ><RouterLink active-class="activity" to="/HomePage/mainarea">为你推荐</RouterLink></li>
+    <li ><RouterLink active-class="activity" to="/HomePage/folwingarea">正在关注</RouterLink></li>
   </ul>
   <div class="gray_line"></div>
 </section>

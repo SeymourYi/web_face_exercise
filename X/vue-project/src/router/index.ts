@@ -3,6 +3,8 @@ import FolwingArea from "@/components/home/FolwingArea.vue";
 import MainArea from "@/components/home/MainArea.vue";
 import UserNaviLine from "@/components/user_home/UserNaviLine.vue";
 import HomePage from '@/components/home/HomePage.vue'
+import HuiFu from '@/components/user_home/HuiFu.vue'
+import TieZi from '@/components/user_home/TieZi.vue'
 
 const router = createRouter({
   history: createWebHistory(),
@@ -10,7 +12,20 @@ const router = createRouter({
     {
       name: 'yonghujiemian',
       path: '/usernaviLine',
-      component: UserNaviLine
+      component: UserNaviLine,
+      children: [
+        {
+          name: 'huifu',
+          path: 'huifu',
+          component: HuiFu
+        },
+        {
+          name: 'tiezi',
+          path: 'tiezi',
+          component: TieZi
+        },
+
+      ]
     },
     {
       name: 'zhujiemian',

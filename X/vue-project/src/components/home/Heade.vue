@@ -6,8 +6,8 @@ import { RouterView,RouterLink } from "vue-router";
   <div class="header">
     <div class="w">
      <ul>
-      <li><RouterLink to="/usernaviLine"><img src="./avatar.svg" alt=""></RouterLink></li>
-      <li><RouterLink to="/homepage"><img src="./home.svg" alt=""></RouterLink></li>
+      <li><RouterLink to="/usernaviLine/tiezi"><img src="./avatar.svg" alt=""></RouterLink></li>
+      <li><RouterLink to="/HomePage/mainarea"><img src="./home.svg" alt=""></RouterLink></li>
      </ul>
     </div>
   </div>

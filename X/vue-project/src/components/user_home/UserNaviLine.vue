@@ -1,6 +1,7 @@
 <script setup lang="ts" name="UserNaviLine">
 import NaviLine from '../home/NaviLine.vue';
 import MainArea from '../home/MainArea.vue';
+import { RouterView,RouterLink } from "vue-router";
 </script>
 
 <template>
@@ -36,9 +37,51 @@ import MainArea from '../home/MainArea.vue';
 </div>
 <!-- <NaviLine/> -->
 <!-- <MainArea/> -->
+<div>
+  <section>
+  <ul class="NaviLines">
+    <li ><RouterLink active-class="activity" to="/usernaviLine/tiezi">帖子</RouterLink></li>
+    <li ><RouterLink active-class="activity" to="/usernaviLine/huifu">回复</RouterLink></li>
+  </ul>
+  <div class="gray_line"></div>
+</section>
+</div>
+<RouterView/>
+
+
+
+
+
 </template>
 
 <style scoped>
+
+
+.NaviLines{
+  top: 60px;
+display: flex;
+padding-left: 0;
+line-height:2.25;
+border-bottom: 1px solid gray;
+
+li{
+  height: 2.25rem;
+  margin: 0 10px;
+  a{
+    text-align: center;
+   
+  }
+}
+}
+.activity{
+
+border-bottom: 2px solid pink;
+
+a{
+  font-weight: 600;
+}
+}
+
 .bg_pic{
   img{
     height: 8.125rem;
