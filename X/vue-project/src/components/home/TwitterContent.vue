@@ -1,18 +1,40 @@
 <script setup lang="ts" name="TwitterContent">
+import { id } from 'element-plus/es/locales.mjs';
+import {reactive} from 'vue'
+const newList = reactive([
+  {id:'asdasd1',title:'很好的抗癌食物',content:'西蓝花'},
+  {id:'asdasd2',title:'如何一夜暴富',content:'学IT'},
+  {id:'asdasd3',title:'震惊，万万没想到',content:'明天是周一'},
+  {id:'asdasd4',title:'食物',content:'蓝花'},
+  {id:'asdasd5',title:'好消息',content:'快过年了'},
+])
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </script>
 
 <template>
+
 <div class="main_content">
-<div class="user_pic">1</div>
-<div class="content">
-  <div class="user_name_line">iStar</div>
-  <div class="user_text">一到周末就下雨，只好去桥底跑一下。最近心率控制还可以了</div>
-  <div class="user_upload_pic">
-    <img src="../user_home/a.png" alt="">
-  </div>
-  <div class="user_options">1</div>
+ <ul>
+  <li v-for="news in newList" :key="news.id">
+    <span>{{ news.content }}</span>
+  </li>
+ </ul>
 </div>
-</div>
+
 </template>
 
 <style scoped>

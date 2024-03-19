@@ -1,4 +1,4 @@
-<script setup lang="ts" name="Header">
+<script setup lang="ts" name="Logo">
 import { RouterView,RouterLink } from "vue-router";
 </script>
 
@@ -6,8 +6,7 @@ import { RouterView,RouterLink } from "vue-router";
   <div class="header">
     <div class="w">
      <ul>
-      <li><RouterLink to="/usernaviLine"><img src="./avatar.svg" alt=""></RouterLink></li>
-      <li><RouterLink to="/homepage"><img src="./home.svg" alt=""></RouterLink></li>
+      <li><RouterLink to="/usernaviLine"><img src="./logo.svg" alt=""></RouterLink></li>
      </ul>
     </div>
   </div>
@@ -16,7 +15,7 @@ import { RouterView,RouterLink } from "vue-router";
 <style scoped>
 .header{
   position: fixed;
-  bottom: 0px;
+  top:0px;
   height: 50px;
   width: 100%;
   background-color: white;

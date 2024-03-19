@@ -56,6 +56,11 @@
   box-sizing: border-box;
   margin: 0;
   font-weight: normal;
+  padding: 0;
+}
+
+ul {
+  padding: 0;
 }
 
 body {

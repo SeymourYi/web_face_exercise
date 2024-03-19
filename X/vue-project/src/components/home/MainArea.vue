@@ -1,16 +1,20 @@
 <script setup lang="ts" name="MainArea">
-import TwitterContent from './TwitterContent.vue';
 </script>
 
 <template>
-<TwitterContent/>
-<TwitterContent/>
-<TwitterContent/>
-<TwitterContent/>
-<TwitterContent/>
+  <div>123</div>
+  <div>123</div>
+  <div>123</div>
+  <div>123</div>
+  
+<!-- <TwitterContent/> -->
+
 
 </template>
 
 <style scoped>
-
+div{
+  /* background-color: white; */
+  color: white;
+}
 </style>

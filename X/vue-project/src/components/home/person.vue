@@ -1,4 +1,4 @@
-<script setup lang="ts" name="App">
+<script setup lang="ts" name="App1">
 
 </script>
 
