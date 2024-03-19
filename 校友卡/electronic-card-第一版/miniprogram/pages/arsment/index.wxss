@@ -1,0 +1,5 @@
+/* pages/arsment/index.wxss */
+.litt{
+  font-size: 20rpx;
+  color: gray;
+}

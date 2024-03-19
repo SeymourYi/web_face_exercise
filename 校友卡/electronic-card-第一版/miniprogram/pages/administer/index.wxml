@@ -1,0 +1,41 @@
+<!--pages/administer/index.wxml-->
+<view>管理员界面</view>
+<form bindsubmit="keys_bten" >
+<input name="keys" placeholder="管理员密钥"></input>
+<button form-type="submit" type="primary"> 确定</button>
+</form>
+
+<!-- <button bindtap="chooseExcel">选择excel</button> -->
+
+<button wx:if="{{k===1}}" bindtap="chooseExcel" type="primary"> 点击上传数据</button>
+<view class="welcome-overlay" wx:if="{{outlook_name}}">{{outlook_name}}</view>
+<view wx:if="{{k===1}}">
+
+<view class="disp" wx:for="{{dataList}}">
+<form bindsubmit="data_chack">
+  <view>姓名</view>
+  <input  name="name" value="{{item.name}}"></input>
+  <view>性别</view>
+  <input name="gender" value="{{item.gender}}"></input>
+  <view>出生日期</view>
+  <input name="birthday" value="{{item.birthday}}"></input>
+  <view>专业</view>
+  <input name="major" value="{{item.major}}"></input>
+  <view>学号</view>
+  <input  name="studentID" value="{{item.studentID}}"></input>
+  <view>专科/本科:</view>
+  <input name="level" value="{{item.level}}"></input>
+  <view>学制（年）:</view>
+  <input name="years_of_education" value="{{item.years_of_education}}"> </input>
+  <view>入学日期:</view>
+  <input name="start_time" value="{{item.start_time}}"></input>
+  <view>毕业日期:</view>
+  <input name="graduation_time" value="{{item.graduation_time}}"></input>
+  <button bindtap="handleButtonClick" disabled="{{buttonDisabled}}"  form-type="submit" type="primary">点击操作</button> 
+  <view>.</view>
+  
+  <view class="separator"></view>
+
+</form>
+</view>
+</view>

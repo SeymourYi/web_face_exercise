@@ -1,0 +1,7 @@
+/* pages/administer/index.wxss */.separator {
+  border-top: 1px solid rgba(204, 204, 204, 0.911);
+  margin: 10px 15px
+}
+.disp{
+  
+}

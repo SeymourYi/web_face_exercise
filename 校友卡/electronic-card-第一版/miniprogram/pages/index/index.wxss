@@ -1,0 +1,156 @@
+.mutated-image {
+  height: 450rpx;
+  width: 650rpx;
+  margin:auto;
+  display: inline-block;
+  border: 2px solid #ddd;
+  border-radius: 30rpx;
+  padding: 3rpx;
+  transition: .3s;
+  box-shadow: 0 4px 8px rgba(100, 86, 229, .2), 0 6px 20px rgba(225, 80, 80, .19)
+}
+.but{
+  position: relative;
+  left: -130rpx;
+}
+.butconter{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 10vh;
+}
+
+.upon{
+  position: absolute;
+  border-radius: 15rpx;
+  top: 160rpx;
+  left: 44rpx;
+}
+.ll{
+position: relative;
+}
+.separator {
+  border-top: 1px solid rgba(204, 204, 204, 0.911);
+  margin: 10px 15px
+}
+.countt{
+  box-sizing: border-box;
+
+}
+.label2 {
+  display: flex;
+  font-size: 20rpx;
+  position: absolute;
+  top: 322rpx;
+  left: 365rpx;
+}
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 20px;
+  flex-direction: column;
+  height: 50vh
+}
+.bgi{
+  background-image: url("https://636c-cloud1-6gs02vc254602900-1320284290.tcb.qcloud.la/blue4.jpg?sign=bb43b7b259d654fd3b6b8858cc06d640&t=1692613492");
+  background-size: cover;
+  background-position: center
+}
+.labelq {
+  margin-right: 80px;
+  float: left;
+  font-size: 16px;
+  text-align: right
+}
+.label {
+  margin-right: 80px;
+  float: left;
+  font-size: 16px;
+  text-align: right
+}
+.label1 {
+  float: left;
+  font-size: 15px;
+}
+.labelq:before {
+   /* content: "\22c6";
+   color: red */
+}
+.label:before {
+  content: "\22c6";  color: red
+}
+.navigator-hover {
+  color:blue;
+}
+.welcome-overlay {
+  font-family: "STXinwei";
+  position: absolute;
+  top: 191rpx;
+  left: 350rpx;
+  transform: translate(-50%, -50%);
+  color:black;
+  font-size: 25rpx;
+  font-weight: 700;
+  text-align: center
+}
+
+.welcome-overlay1 {
+  font-family: "STXinwei";
+  position: absolute;
+  top: 225rpx;
+  left: 330rpx;
+  transform: translate(-50%, -50%);
+  color: black;
+  font-size: 30rpx;
+  font-weight: 700;
+  text-align: center
+}
+.welcome-overlay3{
+  font-family: "STXinwei";
+  position: absolute;
+  top: 295rpx;
+  left: 430rpx;
+  transform: translate(-50%, -50%);
+  color: black;
+  font-size: 25rpx;
+  font-weight: 700;
+  text-align: center
+}
+.flip-container {
+  perspective: 1000rpx;
+  margin: 20rpx;
+}
+
+.flipper {
+  width: 600rpx;
+  height: 400rpx;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.6s;
+}
+
+.flip-container:hover .flipper {
+  transform: rotateY(180deg);
+}
+
+.fount_css{
+  position: absolute;
+}
+.front, .back {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  backface-visibility: hidden;
+}
+
+.back {
+  transform: rotateY(180deg);
+}
+
+/* 可根据需要自定义样式 */
+.front image, .back image {
+
+  width: 100%;
+  height: 100%;
+}

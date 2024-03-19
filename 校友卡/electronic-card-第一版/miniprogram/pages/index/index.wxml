@@ -1,0 +1,93 @@
+
+<view class="bgi">
+  <view class="container">
+  <view class="ll">
+
+
+    <view animation="{{animationData}}"  class="cl">
+<view class="flip-container">
+  <view class="flipper">
+    <view class="front">
+      <image src="{{tempFilePaths}}"  class="upon" style="width:175rpx; height: 220rpx" />
+      <view class="welcome-overlay" wx:if="{{outlook_name}}">{{outlook_name}}</view>
+      <view class="welcome-overlay1" wx:if="{{outlook_gender}}">{{outlook_gender}}</view>
+    
+
+      <view class="welcome-overlay3" wx:if="{{outlook_gender}}">{{outlook_start_time}}</view>
+
+      <text class="label2"  wx:if="{{outlook_gender}}" bindtap="getTime">{{Time}}</text>
+      <image id="font_car" src="https://636c-cloud1-6gs02vc254602900-1320284290.tcb.qcloud.la/%E5%9B%BE%E5%B1%82%205.png?sign=5faf3c8d3fe15fb42e5a881d831e5129&t=1695275363" alt="Image 1"></image>
+    </view>
+    <view class="back">
+    <view class="fount_css"></view>
+      <image src=" https://636c-cloud1-6gs02vc254602900-1320284290.tcb.qcloud.la/%E5%9B%BE%E5%B1%82%202.png?sign=15c97e0b5a0eb29d40eec04f7009c54a&t=1695272368" alt="Image 2"></image>
+    </view>
+  </view>
+</view>
+    </view>
+
+ 
+ 
+
+
+</view>
+</view>
+
+
+
+
+ 
+
+
+<view wx:if="{{showForm}}">
+<form bindsubmit="btnsub">
+  <view class="label">名字:</view>
+  <input name="name" style="text-align:right" placeholder="李华"></input>
+  <view class="separator"></view>
+  <view class="label">性别:</view>
+  
+  <input name="gender" style="text-align:right" placeholder="男"></input>
+  <view class="separator"></view>
+  <view class="labelq">学号:</view>
+
+  <input style="text-align:right" name="studentID" placeholder="123456"></input>
+  <view class="separator"></view>
+  <view class="labelq">专业:</view>
+
+  <input name="major" style="text-align:right" placeholder="汉语言文学"></input>
+  <view class="separator"></view>
+  <view class="label">入学时间:</view>
+
+  <input name="start_time" placeholder="202309" style="text-align:right"></input>
+  <view class="separator"></view>
+  <view class="labelq">出生时间:</view>
+
+  <input style="text-align:right" name="brithday" placeholder="202309"></input>
+  <view class="separator"></view>
+
+  <view class="labelq">本科/专科:</view>
+  <input name="level" style="text-align:right" placeholder="专科"></input>
+  <view class="separator"></view>
+  
+
+  <view class="labelq">毕业时间:</view>
+  <input name="graduation_time" style="text-align:right" placeholder="202309"></input>
+  <view class="separator"></view>
+
+  <view class="labelq">学制:</view>
+  <input name="years_of_education" style="text-align:right" placeholder="2"></input>
+  <view class="separator"></view>
+
+
+  <view>
+</view>
+<radio-group bindchange="radiochange">
+<radio  color="red" class="label1"> 我已经阅读且接受</radio></radio-group>
+<navigator style="color:rgb(233, 119, 25)" hover-class="navigator-hover" url="../../pages/arsment/index">《用户隐私协议》</navigator>
+<view class="butconter">
+  <button disabled="{{l}}" class="but"  type="primary" form-type="submit">点击生成</button>
+</view>
+</form>
+</view>
+</view>
+
