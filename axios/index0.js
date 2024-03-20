@@ -43,16 +43,16 @@ btn.addEventListener(
 
 
 
-axios({
-  url: 'http://hmajax.itheima.net/api/area',
-  params: {
-    pname: '湖南省',
-    cname: '长沙市'
+// axios({
+//   url: 'http://hmajax.itheima.net/api/area',
+//   params: {
+//     pname: '湖南省',
+//     cname: '长沙市'
 
-  }
-}).then(result => {
-  const p = document.querySelector(".my_p");
-  const result_ = result.data.list.join('<br>');
-  console.log(result_);
-  p.innerHTML = result_;
-})
+//   }
+// }).then(result => {
+//   const p = document.querySelector(".my_p");
+//   const result_ = result.data.list.join('<br>');
+//   console.log(result_);
+//   p.innerHTML = result_;
+// })
