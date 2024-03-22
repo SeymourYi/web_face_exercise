@@ -1,0 +1,11 @@
+# 使用官方的 OpenJDK 11 基础镜像
+FROM openjdk:17
+
+# 将本地的 JAR 文件添加到容器中
+COPY car.jar /root/java/car.jar
+
+# 暴露应用程序的端口s
+EXPOSE 8080
+
+# 设置容器启动时执行的命令
+CMD ["java", "-jar", "/root/java/car.jar"]

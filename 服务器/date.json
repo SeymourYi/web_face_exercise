@@ -1,0 +1,30 @@
+[
+  {
+    "student_id": 890159,
+    "name": "梅二伍",
+    "sex": "男",
+    "birthdate": "196907",
+    "society_id": "",
+    "major": "数学教育",
+    "level": "专科",
+    "system_type": "2",
+    "join_date": "198809",
+    "end_date": "199107",
+    "Certification": 0,
+    "isdelete": 0
+  },
+  {
+    "student_id": 890387,
+    "name": "高彩萍",
+    "sex": "女",
+    "birthdate": "196908",
+    "society_id": "",
+    "major": "英语教育",
+    "level": "专科",
+    "system_type": "2",
+    "join_date": "198809",
+    "end_date": "199107",
+    "Certification": 0,
+    "isdelete": 0
+  }
+]

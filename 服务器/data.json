@@ -1,0 +1,64 @@
+[
+  {
+    "id": 1,
+    "username": "a1345",
+    "password": "2345",
+    "nickname": "",
+    "email": "",
+    "user_pic": "",
+    "create_time": "2024-01-19 01:26:06",
+    "update_time": "2024-01-19 01:26:06"
+  },
+  {
+    "id": 2,
+    "username": "b1345",
+    "password": "81b073de9370ea873f548e31b8adc081",
+    "nickname": "",
+    "email": "",
+    "user_pic": "",
+    "create_time": "2024-01-19 01:28:20",
+    "update_time": "2024-01-19 01:28:20"
+  },
+  {
+    "id": 3,
+    "username": "aa3345",
+    "password": "e10adc3949ba59abbe56e057f20f883e",
+    "nickname": "",
+    "email": "",
+    "user_pic": "https://big-event-gwd.oss-cn-beijing.aliyuncs.com",
+    "create_time": "2024-01-19 03:28:36",
+    "update_time": "2024-01-21 23:53:27"
+  },
+  {
+    "id": 4,
+    "username": "123456",
+    "password": "fcea920f7412b5da7be0cf42b8c93759",
+    "nickname": "",
+    "email": "",
+    "user_pic": "",
+    "create_time": "2024-01-23 14:23:58",
+    "update_time": "2024-01-24 00:12:10"
+  },
+  {
+    "student_id": 890159,
+    "name": "梅二伍",
+    "sex": "男",
+    "brithdata": 196907,
+    "socit_id": "",
+    "major": "数学教育",
+    "level": "专科",
+    "system": 2,
+    "join_data": 198809,
+    "end_data": 199107
+  },
+  {
+    "id": 6,
+    "username": "123456789",
+    "password": "25f9e794323b453885f5181f1b624d0b",
+    "nickname": "",
+    "email": "",
+    "user_pic": "",
+    "create_time": "2024-03-20 16:40:26",
+    "update_time": "2024-03-20 16:40:26"
+  }
+]

@@ -1,0 +1,118 @@
+java -jar big_event_Stu1-1.0-SNAPSHOT.jar
+ docker exec -it mysql bash
+mysql -h 172.17.0.2 -u root -p123
+SHOW DATABASES;
+DESCRIBE table_name;
+quit
+SELECT * FROM students;
+
+RENAME TABLE users TO new_users;
+rm -rf java0
+docker run --name mysql -e MYSQL_ROOT_PASSWORD=123 -d mysql:latest
+docker rm mysql
+
+docker run -d \
+
+
+
+
+--name mysql \
+-p 3306:3306 \
+-e TZ=Asia/Shanghai \
+-e MYSQL_ROOT_PASSWORD=123 \
+mysql:latest
+
+
+# 使用官方的 OpenJDK 11 基础镜像
+FROM openjdk:11-jre-slim
+
+# 将本地的 JAR 文件添加到容器中
+COPY root/java/big_even.jar /root/big_even.jar
+
+# 暴露应用程序的端口
+EXPOSE 8080
+
+# 设置容器启动时执行的命令
+CMD ["java", "-jar", "/root/java/car.jar"]
+
+CREATE DATABASE students_db;
+
+CREATE TABLE users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(255),
+    password VARCHAR(255),
+    nickname VARCHAR(255),
+    email VARCHAR(255),
+    user_pic VARCHAR(255),
+    create_time DATETIME,
+    update_time DATETIME
+);
+
+INSERT INTO users (id, username, password, nickname, email, user_pic, create_time, update_time)
+VALUES
+    (1, 'a1345', '2345', '', '', '', '2024-01-19 01:26:06', '2024-01-19 01:26:06'),
+    (2, 'b1345', '81b073de9370ea873f548e31b8adc081', '', '', '', '2024-01-19 01:28:20', '2024-01-19 01:28:20'),
+    (3, 'aa3345', 'e10adc3949ba59abbe56e057f20f883e', '', '', 'https://big-event-gwd.oss-cn-beijing.aliyuncs.com', '2024-01-19 03:28:36', '2024-01-21 23:53:27'),
+    (4, '123456', 'fcea920f7412b5da7be0cf42b8c93759', '', '', '', '2024-01-23 14:23:58', '2024-01-24 00:12:10'),
+    (5, '123456a', 'e10adc3949ba59abbe56e057f20f883e', '', '', '', '2024-02-29 22:12:47', '2024-02-29 22:12:47'),
+    (6, '123456789', '25f9e794323b453885f5181f1b624d0b', '', '', '', '2024-03-20 16:40:26', '2024-03-20 16:40:26');
+
+
+docker build -t big_event .
+docker run -d -p 8080:8080 big_event
+ epic_haibt
+ docker inspect mysql
+docker rm -f nginx hm mysql/
+
+
+
+
+
+create table admin
+(
+    name     varchar(255) null,
+    password varchar(255) null
+);
+
+create table students
+(
+    student_id    int          not null
+        primary key,
+    name          varchar(255) null,
+    sex           varchar(10)  null,
+    birthdate     varchar(255) null,
+    society_id    varchar(20)  null,
+    major         varchar(50)  null,
+    level         varchar(20)  null,
+    system_type   varchar(255) null,
+    join_date     varchar(255) null,
+    end_date      varchar(255) null,
+    Certification tinyint(1)   null,
+    isdelete      tinyint(1)   null
+);
+
+INSERT INTO students (student_id, name, sex, birthdate, society_id, major, level, system_type, join_date, end_date, Certification, isdelete)
+VALUES
+  (890387, '高彩萍', '女', '196908', '', '英语教育', '专科', '2', '198809', '199107', 0, 0),
+  (890159, '梅二伍', '男', '196907', '', '数学教育', '专科', '2', '198809', '199107', 0, 0);
+
+
+  ++++++++++++++++++++++
+
+  # 使用官方的 OpenJDK 11 基础镜像
+FROM openjdk:17
+
+# 将本地的 JAR 文件添加到容器中
+COPY big_event.jar /root/java/big_event.jar
+
+# 暴露应用程序的端口s
+EXPOSE 8080
+
+# 设置容器启动时执行的命令
+CMD ["java", "-jar", "/root/java/big_event.jar"]
+
++++++++++++++++++++++++++++++++++++++++
+
+docker build -t car .
+docker run -p 8080:8080 car
+++++++++++++++++++++++++++++++++++++++++++++++++
