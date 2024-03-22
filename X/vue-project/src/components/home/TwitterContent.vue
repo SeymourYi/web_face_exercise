@@ -1,6 +1,11 @@
 <script setup lang="ts" name="TwitterContent">
 import { id } from 'element-plus/es/locales.mjs';
+import {useCountstore} from '@/stores/X'
+
 import {reactive} from 'vue'
+const X = useCountstore()
+console.log(X[0].create_time);
+
 const newList = reactive([
   {id:'asdasd1',title:'很好的抗癌食物',content:'西蓝花'},
   {id:'asdasd2',title:'如何一夜暴富',content:'学IT'},
@@ -29,8 +34,8 @@ const newList = reactive([
 
 <div class="main_content">
  <ul>
-  <li v-for="news in newList" :key="news.id">
-    <span>{{ news.content }}</span>
+  <li v-for="news in X" :key="news.id">
+    <span>{{ news.create_time }}</span>
   </li>
  </ul>
 </div>

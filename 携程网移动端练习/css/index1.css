@@ -158,3 +158,14 @@ div {
     height: 28px;
     background-color: pink;
 }
+
+.sales-box {
+    border-top: 1px solid #ccc;
+    background-color: #ccc;
+    margin: 4px;
+}
+
+.sales-hd {
+    height: 44px;
+    border-bottom: 1px solid #000;
+}

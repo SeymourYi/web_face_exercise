@@ -40,6 +40,7 @@
     "update_time": "2024-01-24 00:12:10"
   },
   {
+<<<<<<< HEAD
     "student_id": 890159,
     "name": "梅二伍",
     "sex": "男",
@@ -50,6 +51,16 @@
     "system": 2,
     "join_data": 198809,
     "end_data": 199107
+=======
+    "id": 5,
+    "username": "123456a",
+    "password": "e10adc3949ba59abbe56e057f20f883e",
+    "nickname": "",
+    "email": "",
+    "user_pic": "",
+    "create_time": "2024-02-29 22:12:47",
+    "update_time": "2024-02-29 22:12:47"
+>>>>>>> origin/main
   },
   {
     "id": 6,
