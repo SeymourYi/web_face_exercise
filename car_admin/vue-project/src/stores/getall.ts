@@ -6,7 +6,8 @@ export const useGetallStore = defineStore('getall', {
       try {
         const response = await axios.get<any, AxiosResponse<any, any>>('http://localhost:8080/student/getall');
         // console.log(response.data.data);
-        let res = response.data.data[0]
+        let res = response.data.data
+        this.list = response.data.data
         console.log(res.name);
         if (true) {
           this.sum = res.student_id
@@ -23,6 +24,7 @@ export const useGetallStore = defineStore('getall', {
   },
   state() {
     return {
+      list: [],
       sum: 6,
       sum1: 6,
       sum2: 6,

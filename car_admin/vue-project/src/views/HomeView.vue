@@ -3,6 +3,8 @@ import { useGetallStore } from "@/stores/getall";
 import { ref, reactive, onBeforeMount } from "vue";
 import axios, { type AxiosResponse } from "axios";
 import { storeToRefs } from "pinia";
+import { usestudentlist } from "@/stores/studentList";
+const getstudentlist = usestudentlist()
 function getall() {
 
   // getallstore.$patch({
@@ -13,16 +15,18 @@ function getall() {
   // getallstore.sum1++
   // getallstore.sum2++
   // getallstore.sum3++
+
   getallstore.getalla()
+  console.log("@@@@@@@@" + JSON.parse(JSON.stringify(getstudentlist)));
 
 
 }
 const getallstore = useGetallStore();
 
 //监视state的变化
-getallstore.$subscribe(() => {
-  console.log(11111123);
-
+getallstore.$subscribe((mutate, state) => {
+  console.log(11111123, mutate, state);
+  localStorage.setItem("studentList", JSON.stringify(state))
 })
 
 
@@ -46,6 +50,7 @@ const { bigSum, lessSum, texaat, } = storeToRefs(getallstore)
 
 <template>
   <main>
+    <div>localstoredata: {{ getstudentlist }}</div>
     <div>搜索{{ getallstore.sum }},{{ }}</div>
     <div>搜索{{ getallstore.sum1 }}</div>
     <div>搜索{{ getallstore.sum2 }}</div>
