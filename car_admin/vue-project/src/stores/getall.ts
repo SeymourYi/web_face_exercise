@@ -1,5 +1,6 @@
 import { defineStore } from "pinia";
 import axios, { type AxiosResponse } from "axios";
+import { ref } from "vue";
 export const useGetallStore = defineStore('getall', {
   actions: {
     async getalla() {
@@ -7,8 +8,9 @@ export const useGetallStore = defineStore('getall', {
         const response = await axios.get<any, AxiosResponse<any, any>>('http://localhost:8080/student/getall');
         // console.log(response.data.data);
         let res = response.data.data
-        this.list = response.data.data
-        console.log(res.name);
+        this.list.push = res[0]
+        // console.log(res);
+        console.log(this.list);
         if (true) {
           this.sum = res.student_id
           this.sum++
@@ -24,7 +26,7 @@ export const useGetallStore = defineStore('getall', {
   },
   state() {
     return {
-      list: [],
+      list: ref([]),
       sum: 6,
       sum1: 6,
       sum2: 6,
