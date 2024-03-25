@@ -11,6 +11,7 @@
     "type-check": "vue-tsc --build --force"
   },
   "dependencies": {
+    "element-plus": "^2.6.2",
     "emitter": "^0.0.5",
     "mitt": "^3.0.1",
     "pinia": "^2.1.7",

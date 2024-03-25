@@ -30,29 +30,53 @@ const search = async function () {
 
 <template>
   <div id="app">
-    <!-- 文章分类输入框 -->
-    文章分类: <input type="text" v-model.trim="searchConditions.name">
 
-    <!-- 搜索按钮 -->
-    <button @click="search">搜索</button>
+    名字搜索: <input type="text" v-model="searchConditions.name">
 
-    <!-- 学生信息表格 -->
+    发布状态: <input type="text" v-model="searchConditions.state">
+
+    <button v-on:click="search">搜索</button>
+
+    <br />
+    <br />
     <table border="1 solid" colspa="0" cellspacing="0">
       <tr>
-        <th>学生姓名</th>
-        <th>性别</th>
-        <th>专业</th>
+        <th>文章标题</th>
+        <th>分类</th>
+        <th>发表时间</th>
+        <th>状态</th>
         <th>操作</th>
       </tr>
-      <tr v-for="(student, index) in studentList" :key="index">
-        <td>{{ student.name }}</td>
-        <td>{{ student.sex }}</td>
-        <td>{{ student.major }}</td>
+      <tr v-for="(article, index) in studentList">
+        <td>{{ article.name }}</td>
+        <td>{{ article.sex }}</td>
+        <td>{{ article.major }}</td>
+        <td>{{ article.level }}</td>
         <td>
           <button>编辑</button>
           <button>删除</button>
         </td>
       </tr>
+      <!-- <tr>
+        <td>标题2</td>
+        <td>分类2</td>
+        <td>2000-01-01</td>
+        <td>已发布</td>
+        <td>
+            <button>编辑</button>
+            <button>删除</button>
+        </td>
+    </tr>
+    <tr>
+        <td>标题3</td>
+        <td>分类3</td>
+        <td>2000-01-01</td>
+        <td>已发布</td>
+        <td>
+            <button>编辑</button>
+            <button>删除</button>
+        </td>
+    </tr> -->
     </table>
   </div>
 </template>
