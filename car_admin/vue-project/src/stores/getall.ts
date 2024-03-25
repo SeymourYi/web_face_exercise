@@ -1,6 +1,7 @@
 import { defineStore } from "pinia";
 import axios, { type AxiosResponse } from "axios";
 import { ref } from "vue";
+import emitter from "@/utils/emitter";
 export const useGetallStore = defineStore('getall', {
   actions: {
     async getalla() {
@@ -8,7 +9,14 @@ export const useGetallStore = defineStore('getall', {
         const response = await axios.get<any, AxiosResponse<any, any>>('http://localhost:8080/student/getall');
         // console.log(response.data.data);
         let res = response.data.data
-        this.list.push = res[0]
+        console.log(res[0]);
+        console.log(res[1]);
+        for (let index = 0; index < res.length; index++) {
+          this.list.push(res[index]) //报错不要紧 可以运行
+          console.log("1");
+
+        }
+
         // console.log(res);
         console.log(this.list);
         if (true) {
@@ -21,6 +29,10 @@ export const useGetallStore = defineStore('getall', {
         console.error(error);
         return null;
       }
+    },
+    show() {
+      console.log(this.list);
+
     }
 
   },

@@ -12,7 +12,7 @@
 
         文章分类: <input type="text" v-model="searchConditions.category">
 
-        发布状态: <input type="text"  v-model="searchConditions.state">
+        发布状态: <input type="text" v-model="searchConditions.state">
 
         <button v-on:click="search">搜索</button>
 
@@ -27,8 +27,8 @@
                 <th>操作</th>
             </tr>
             <tr v-for="(article,index) in articleList">
-                <td>{{article.title}}</td>
-                <td>{{article.category}}</td>
+                <td>{{article.name}}</td>
+                <td>{{article.sex}}</td>
                 <td>{{article.time}}</td>
                 <td>{{article.state}}</td>
                 <td>
@@ -62,40 +62,40 @@
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script type="module">
         //导入vue模块
-        import {createApp} from 'https://unpkg.com/vue@3/dist/vue.esm-browser.js';
+        import { createApp } from 'https://unpkg.com/vue@3/dist/vue.esm-browser.js';
         //创建vue应用实例
         createApp({
-            data(){
+            data() {
                 return {
-                    articleList:[],
-                    searchConditions:{
-                        category:'',
-                        state:''
+                    articleList: [{ "student_id": 890159, "name": "梅二伍", "sex": "男", "birthdate": "196907", "society_id": null, "major": "数学教育", "level": "专科", "system_type": null, "join_date": null, "end_date": null, "isdelete": false, "certification": false }, { "student_id": 890387, "name": "高彩萍", "sex": "女", "birthdate": "196908", "society_id": null, "major": "英语教育", "level": "专科", "system_type": null, "join_date": null, "end_date": null, "isdelete": false, "certification": false }, { "student_id": 890159, "name": "梅二伍", "sex": "男", "birthdate": "196907", "society_id": null, "major": "数学教育", "level": "专科", "system_type": null, "join_date": null, "end_date": null, "isdelete": false, "certification": false }, { "student_id": 890387, "name": "高彩萍", "sex": "女", "birthdate": "196908", "society_id": null, "major": "英语教育", "level": "专科", "system_type": null, "join_date": null, "end_date": null, "isdelete": false, "certification": false }],
+                    searchConditions: {
+                        category: '',
+                        state: ''
                     }
                 }
             },
-            methods:{
+            methods: {
                 //声明方法
-                search:function(){
+                search: function () {
                     //发送请求,完成搜索,携带搜索条件
-                    axios.get('http://localhost:8080/article/search?category='+this.searchConditions.category+'&state='+this.searchConditions.state)
-                    .then(result=>{
-                        //成功回调 result.data
-                        //把得到的数据赋值给articleList
-                        this.articleList=result.data
-                    }).catch(err=>{
-                        console.log(err);
-                    });
+                    axios.get('http://localhost:8080/article/search?category=' + this.searchConditions.category + '&state=' + this.searchConditions.state)
+                        .then(result => {
+                            //成功回调 result.data
+                            //把得到的数据赋值给articleList
+                            this.articleList = result.data
+                        }).catch(err => {
+                            console.log(err);
+                        });
                 }
             },
             //钩子函数mounted中,获取所有文章数据
-            mounted:function(){
+            mounted: function () {
                 //发送异步请求  axios
-                axios.get('http://localhost:8080/article/getAll').then(result=>{
+                axios.get('http://localhost:8080/article/getAll').then(result => {
                     //成功回调
                     //console.log(result.data);
-                    this.articleList=result.data;
-                }).catch(err=>{
+                    this.articleList = result.data;
+                }).catch(err => {
                     //失败回调
                     console.log(err);
                 });

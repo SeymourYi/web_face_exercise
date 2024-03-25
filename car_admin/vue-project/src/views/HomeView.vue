@@ -14,7 +14,8 @@ let response = ref({ 1: 1 });
 const { bigSum, lessSum, texaat, } = storeToRefs(getallstore)
 
 onBeforeMount(() => {
-  console.log(response.value[1]);
+  // console.log(response.value[1]);
+  getallstore.getalla()
 
   // 在组件挂载到 DOM 之前执行的操作
   // getallstore.getalla()
@@ -60,9 +61,10 @@ async function change_rensponse() {
 }
 
 function change_response() {
-  response.value[1] += 1
+  // response.value[1] += 1
+  getallstore.getalla()
   // response.value = { 1: 3 }
-  console.log(response.value[1]);
+  // console.log(response.value[1]);
 
 }
 
@@ -88,7 +90,12 @@ const stopwatch1 = watch(response, (newvalue, oldvalue) => {
 }, { deep: true, immediate: true })
 
 function text() {
-  console.log(response); // 未定义的变量，应该使用响应式对象
+
+  // getallstore.show()
+  // console.log(response); // 未定义的变量，应该使用响应式对象
+  console.log(getallstore.list);
+
+
 }
 
 function arry() {
@@ -100,7 +107,7 @@ function arry() {
 
 <template>
   <main>
-    <div>localstoredata: {{ getstudentlist }}</div>
+    <div> {{ getallstore.list }}</div>
     <div>搜索{{ getallstore.sum }},{{ }}</div>
     <div>搜索{{ getallstore.sum1 }}</div>
     <div>搜索{{ getallstore.sum2 }}</div>
@@ -109,17 +116,40 @@ function arry() {
 
     <button @click.native="change_response">搜索</button>
     <button @click.native="text">测试</button>
+    <div v-show="getallstore.list">
+      <tr>
+        <th>学号</th>
+        <th>姓名</th>
+        <th>性别</th>
+        <th>出生日期</th>
+        <th>身份证号</th>
+        <th>专业</th>
+        <th>层次</th>
+        <th>学制</th>
+        <th>入学日期</th>
+        <th>毕业日期</th>
+        <th>是否通过审核</th>
+      </tr>
+      <tr v-for="(article, index) in getallstore.list ">
+        <td>{{ article.student_id }}</td>
+        <td>{{ article.name }}</td>
+        <td>{{ article.sex }}</td>
+        <td>{{ article.birthdate }}</td>
+        <td>{{ article.society_id }}</td>
+        <td>{{ article.major }}</td>
+        <td>{{ article.level }}</td>
+        <td>{{ article.system_type }}</td>
+        <td>{{ article.join_date }}</td>
+        <td>{{ article.end_date }}</td>
+        <td>{{ article.certification }}</td>
+        <!-- <td>{{ article. }}</td> -->
+        <!-- <td>{{ article.state }}</td> -->
+        <td>
+          <button>编辑</button>
+          <button>删除</button>
+        </td>
+      </tr>
+    </div>
 
-    <!-- <tr v-for="(article, index) in response">
-      <td>{{ article }}</td>
-      <td></td>
-      <td>{{ article.category }}</td>
-      <td>{{ article.time }}</td>
-      <td>{{ article.state }}</td>
-      <td>
-        <button>编辑</button>
-        <button>删除</button>
-      </td>
-    </tr> -->
   </main>
 </template>
