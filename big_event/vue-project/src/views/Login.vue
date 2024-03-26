@@ -1,6 +1,9 @@
 <script setup>
 import { User, Lock } from '@element-plus/icons-vue'
 import { ref } from 'vue'
+import { ElMessage } from 'element-plus'
+import { useRouter } from 'vue-router'
+const router = useRouter()
 //控制注册与登录表单的显示， 默认显示注册
 // const isRegister = ref(false)
 let adminData = ref({
@@ -36,24 +39,28 @@ import { userRegisterservice, adminLoginService } from '@/api/admin.js'
 
 const register = async () => {
   let result = await userRegisterservice(adminData.value)
-  console.log(result);
 
-  if (result.code == 0) {
-    alert(
-      result.msg ? result.msg : "注册成功")
-  } else {
-    alert("注册失败")
-  }
+  // if (result.code == 0) {
+  //   alert(
+  //     result.msg ? result.msg : "注册成功")
+  // } else {
+  //   alert("注册失败")
+  // }
+  ElMessage.success(result.data.message ? result.data.message : "登录成功")
+  // alert(result.data.message ? result.data.message : "登录成功")
 }
 
 const login = async () => {
   let result = await adminLoginService(adminData.value);
   console.log(result);
-  if (result.code == 0) {
-    alert(result.msg ? result.msg : "登录成功")
-  } else {
-    alert(result.message ? result.message : "登录失败")
-  }
+  // if (result.code == 0) {
+  //   alert(result.msg ? result.msg : "登录成功")
+  // } else {
+  //   alert(result.message ? result.message : "登录失败")
+  // }
+  ElMessage.success(result.data.message ? result.data.message : "登录成功")
+  router.push('/')
+  // alert(result.data.message ? result.data.message : "登录成功")
 }
 </script>
 
