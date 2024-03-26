@@ -1,4 +1,45 @@
 <script lang="ts" setup>
+
+import { reactive, ref } from 'vue'
+
+const dialogTableVisible = ref(false)
+const dialogFormVisible = ref(false)
+const formLabelWidth = '140px'
+
+const form = reactive({
+  name: '',
+  region: '',
+  date1: '',
+  date2: '',
+  delivery: false,
+  type: [],
+  resource: '',
+  desc: '',
+})
+
+const gridData = [
+  {
+    date: '2016-05-02',
+    name: 'John Smith',
+    address: 'No.1518,  Jinshajiang Road, Putuo District',
+  },
+  {
+    date: '2016-05-04',
+    name: 'John Smith',
+    address: 'No.1518,  Jinshajiang Road, Putuo District',
+  },
+  {
+    date: '2016-05-01',
+    name: 'John Smith',
+    address: 'No.1518,  Jinshajiang Road, Putuo District',
+  },
+  {
+    date: '2016-05-03',
+    name: 'John Smith',
+    address: 'No.1518,  Jinshajiang Road, Putuo District',
+  },
+]
+
 const tableData = [
   {
     date: '2016-05-03',
@@ -30,8 +71,8 @@ import {
   Search,
   Star,
 } from '@element-plus/icons-vue'
+import { onMounted } from 'vue';
 
-import { ref } from 'vue'
 
 const currentPage1 = ref(5)
 const currentPage2 = ref(5)
@@ -51,7 +92,6 @@ const handleCurrentChange = (val: number) => {
   console.log(`current page: ${val}`)
 }
 
-import { reactive } from 'vue'
 
 const formInline = reactive({
   user: '',
@@ -69,7 +109,11 @@ const onSubmit = () => {
 <template>
 
 
-  <el-card style="max-width: 480px">
+  <el-button plain @click="dialogFormVisible = true">
+    Open a Form nested Dialog
+  </el-button>
+
+  <el-card style="max-width: 1200px">
     <div class="card-header">
       <span>信息管理</span>
       <el-button type="primary">导入毕业生信息</el-button>
@@ -77,14 +121,17 @@ const onSubmit = () => {
 
 
 
+    <div class="line">
+      <!-- <hr /> -->
 
+    </div>
 
 
 
 
     <el-form :inline="true" :model="formInline" class="demo-form-inline">
 
-      <el-form-item label="Activity zone">
+      <el-form-item label="姓名:">
         <el-select v-model="formInline.region" placeholder="Activity zone" clearable>
           <el-option label="Zone one" value="shanghai" />
           <el-option label="Zone two" value="beijing" />
@@ -127,6 +174,31 @@ const onSubmit = () => {
   </el-card>
 
 
+
+
+  <el-dialog v-model="dialogFormVisible" title="Shipping address" width="500">
+    <el-form :model="form">
+      <el-form-item label="管理员姓名" :label-width="formLabelWidth">
+        <el-input v-model="form.name" autocomplete="off" />
+      </el-form-item>
+
+      <el-form-item label="密码" :label-width="formLabelWidth">
+        <el-input v-model="form.name" autocomplete="off" />
+      </el-form-item>
+
+
+
+    </el-form>
+    <template #footer>
+      <div class="dialog-footer">
+        <el-button @click="dialogFormVisible = false">Cancel</el-button>
+        <el-button type="primary" @click="dialogFormVisible = true">
+          Confirm
+        </el-button>
+      </div>
+    </template>
+  </el-dialog>
+
 </template>
 <style scoped>
 .el-p {
@@ -137,6 +209,16 @@ const onSubmit = () => {
 
 .card-header {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
+}
+
+.line {
+  display: block;
+  height: 20px;
+  /* max-width: 10%; */
+  /* margin-right: 20%; */
+  margin-bottom: 10px;
+  border-bottom: 1px solid gray;
+  /* width: 80%; */
 }
 </style>

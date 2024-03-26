@@ -1,11 +1,13 @@
 <script setup lang="ts">
 import Article from "@/views/Article.vue";
 import studnet from "@/views/student.vue";
+import login from "@/views/login.vue";
 </script>
 
 <template>
   <main>
-    <studnet />
+    <!-- <studnet /> -->
+    <login />
   </main>
   <!-- <Article /> -->
 </template>
