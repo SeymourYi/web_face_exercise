@@ -6,12 +6,12 @@ export const userRegisterservice = (registerData) => {
     params.append(key, registerData[key]);
   }
 
-  return request.post('user/login', registerData);
+  return request.post('user/login', params);
 }
 export const adminLoginService = (loginData) => {
   const params = new URLSearchParams();
   for (let key in loginData) {
     params.append(key, loginData[key])
   }
-  return request.post('/user/login', loginData)
+  return request.post('/user/login', params)//草 原来是你这个jiba写错了
 }
