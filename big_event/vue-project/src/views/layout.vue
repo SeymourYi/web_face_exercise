@@ -9,51 +9,34 @@ import {
   SwitchButton,
   CaretBottom
 } from '@element-plus/icons-vue'
-import avatar from '@/assets/default.png'
 </script>
 
 <template>
   <el-container class="layout-container">
     <!-- 左侧菜单 -->
     <el-aside width="200px">
-      <div class="el-aside__logo"></div>
-      <el-menu active-text-color="#ffd04b" background-color="#232323" text-color="#fff" router>
+      <!-- <div class="el-aside__logo"></div> -->
+      <el-menu active-text-color="#ffd04b" background-color="#3a9bc6" text-color="#fff" router>
         <el-menu-item index="/article/category">
-          <el-icon>
-            <Management />
-          </el-icon>
-          <span>文章分类</span>
+
+          <span>待审核</span>
         </el-menu-item>
-        <el-menu-item index="/article/Manage">
-          <el-icon>
-            <Promotion />
-          </el-icon>
-          <span>文章管理</span>
+        <el-menu-item index="/article/student">
+
+          <span>审核通过</span>
         </el-menu-item>
         <el-sub-menu>
           <template #title>
             <el-icon>
               <UserFilled />
             </el-icon>
-            <span>个人中心</span>
+            <span>管理员中心</span>
           </template>
-          <el-menu-item>
-            <el-icon>
-              <User />
-            </el-icon>
-            <span>基本资料</span>
-          </el-menu-item>
-          <el-menu-item>
-            <el-icon>
-              <Crop />
-            </el-icon>
-            <span>更换头像</span>
-          </el-menu-item>
           <el-menu-item>
             <el-icon>
               <EditPen />
             </el-icon>
-            <span>重置密码</span>
+            <span>修改密码</span>
           </el-menu-item>
         </el-sub-menu>
       </el-menu>
@@ -62,22 +45,9 @@ import avatar from '@/assets/default.png'
     <el-container>
       <!-- 头部区域 -->
       <el-header>
-        <div>黑马程序员：<strong>东哥</strong></div>
+        <div><strong>毕业生信息管理平台</strong></div>
         <el-dropdown placement="bottom-end">
-          <span class="el-dropdown__box">
-            <el-avatar :src="avatar" />
-            <el-icon>
-              <CaretBottom />
-            </el-icon>
-          </span>
-          <template #dropdown>
-            <el-dropdown-menu>
-              <el-dropdown-item command="profile" :icon="User">基本资料</el-dropdown-item>
-              <el-dropdown-item command="avatar" :icon="Crop">更换头像</el-dropdown-item>
-              <el-dropdown-item command="password" :icon="EditPen">重置密码</el-dropdown-item>
-              <el-dropdown-item command="logout" :icon="SwitchButton">退出登录</el-dropdown-item>
-            </el-dropdown-menu>
-          </template>
+
         </el-dropdown>
       </el-header>
       <!-- 中间区域 -->
@@ -87,7 +57,7 @@ import avatar from '@/assets/default.png'
         <!-- </div> -->
       </el-main>
       <!-- 底部区域 -->
-      <el-footer>大事件 ©2023 Created by 黑马程序员</el-footer>
+      <el-footer></el-footer>
     </el-container>
   </el-container>
 </template>

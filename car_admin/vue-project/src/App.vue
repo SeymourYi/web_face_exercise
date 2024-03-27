@@ -6,8 +6,8 @@ import login from "@/views/login.vue";
 
 <template>
   <main>
-    <!-- <studnet /> -->
-    <login />
+    <studnet />
+    <!-- <login /> -->
   </main>
   <!-- <Article /> -->
 </template>

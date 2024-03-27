@@ -102,7 +102,9 @@ const formInline = reactive({
 const onSubmit = () => {
   console.log('submit!')
 }
-
+const searchData = ref({
+  name: ''
+})
 
 </script>
 
@@ -130,10 +132,7 @@ const onSubmit = () => {
     <el-form :inline="true" :model="formInline" class="demo-form-inline">
 
       <el-form-item label="姓名:">
-        <el-select v-model="formInline.region" placeholder="Activity zone" clearable>
-          <el-option label="Zone one" value="shanghai" />
-          <el-option label="Zone two" value="beijing" />
-        </el-select>
+        <el-input placeholder="请输入完整姓名" v-model="searchData.name"></el-input>
       </el-form-item>
 
       <el-form-item>
@@ -174,28 +173,7 @@ const onSubmit = () => {
 
 
 
-  <el-dialog v-model="dialogFormVisible" title="Shipping address" width="500">
-    <el-form :model="form">
-      <el-form-item label="管理员姓名" :label-width="formLabelWidth">
-        <el-input v-model="form.name" autocomplete="off" />
-      </el-form-item>
 
-      <el-form-item label="密码" :label-width="formLabelWidth">
-        <el-input v-model="form.name" autocomplete="off" />
-      </el-form-item>
-
-
-
-    </el-form>
-    <template #footer>
-      <div class="dialog-footer">
-        <el-button @click="dialogFormVisible = false">Cancel</el-button>
-        <el-button type="primary" @click="dialogFormVisible = true">
-          Confirm
-        </el-button>
-      </div>
-    </template>
-  </el-dialog>
 
 </template>
 <style scoped>
