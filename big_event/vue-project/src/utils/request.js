@@ -8,6 +8,7 @@ const instance = axios.create({ baseURL })
 instance.interceptors.response.use(
   result => {
     //如果业务状态码为零就成功了
+    console.log(result.data);
     if (result.data.code === 0) {
       return result.data
     }
