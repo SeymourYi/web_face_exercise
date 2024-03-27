@@ -3,18 +3,15 @@ import Login from '@/views/Login.vue'
 import layout from '@/views/layout.vue'
 import Articlecategoryvue from '@/views/article/ArticleCategory.vue'
 import ArticleManage from '@/views/article/ArticleManage.vue'
-import student from '@/views/student/student.vue'
 
 const routes = [
   { path: '/login', component: Login },
   {
-    path: '/', component: layout, children: [
+    path: '/', component: layout, redirect: '/article/category', children: [
       { path: '/article/category', component: Articlecategoryvue },
-      { path: '/article/Manage', component: ArticleManage },
-      { path: '/article/student', component: student }
+      { path: '/article/Manage', component: ArticleManage }
     ]
   }
-  // redirect: '/article/category',
 ]
 const router = createRouter({
   history: createWebHistory(),

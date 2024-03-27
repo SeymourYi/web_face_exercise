@@ -4,7 +4,6 @@ import { ref } from 'vue'
 import { ElMessage } from 'element-plus'
 import { useRouter } from 'vue-router'
 import { useTokenStore } from '@/stores/token.js'
-import { userRegisterservice, adminLoginService } from '@/api/admin.js'
 const router = useRouter()
 const tokenStore = useTokenStore()
 //控制注册与登录表单的显示， 默认显示注册
@@ -12,6 +11,7 @@ const tokenStore = useTokenStore()
 let adminData = ref({
   username: '',
   password: '',
+  // repasswod: ''
 })
 
 const checkRePassword = (rule, value, callback) => {
@@ -37,7 +37,7 @@ const rules = {
     { validator: checkRePassword, trigger: 'blur' }
   ]
 }
-
+import { userRegisterservice, adminLoginService } from '@/api/admin.js'
 
 const register = async () => {
   let result = await userRegisterservice(adminData.value)
@@ -62,8 +62,8 @@ const login = async () => {
   // } else {
   //   alert(result.message ? result.message : "登录失败")
   // }
-  ElMessage.success("登录成功")
-  router.push('/article/student')
+  ElMessage.success(result.data.message ? result.data.message : "登录成功")
+  router.push('/')
   // alert(result.data.message ? result.data.message : "登录成功")
 }
 </script>

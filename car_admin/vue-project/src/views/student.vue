@@ -109,7 +109,9 @@ const onSubmit = () => {
 <template>
 
 
-
+  <el-button plain @click="dialogFormVisible = true">
+    Open a Form nested Dialog
+  </el-button>
 
   <el-card style="max-width: 1200px">
     <div class="card-header">
