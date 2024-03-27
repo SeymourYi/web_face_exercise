@@ -7,7 +7,7 @@ import ArticleManage from '@/views/article/ArticleManage.vue'
 const routes = [
   { path: '/login', component: Login },
   {
-    path: '/', component: layout, redirect: '/article/Manage', children: [
+    path: '/', component: layout, redirect: '/article/category', children: [
       { path: '/article/category', component: Articlecategoryvue },
       { path: '/article/Manage', component: ArticleManage }
     ]

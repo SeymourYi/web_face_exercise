@@ -48,15 +48,15 @@ const register = async () => {
   // } else {
   //   alert("注册失败")
   // }
-  tokenStore.setToken(result.data.token)
-  console.log(result.data.token);
+
   ElMessage.success(result.data.message ? result.data.message : "登录成功")
   // alert(result.data.message ? result.data.message : "登录成功")
 }
 
 const login = async () => {
   let result = await adminLoginService(adminData.value);
-  console.log(result);
+
+  tokenStore.setToken(result.data)
   // if (result.code == 0) {
   //   alert(result.msg ? result.msg : "登录成功")
   // } else {
