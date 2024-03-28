@@ -19,6 +19,10 @@ instance.interceptors.request.use(
     Promise.reject(err)
   }
 )
+
+// import { useRoute } from 'vue-router'
+// const router = useRoute()
+import routes from '@/router'
 //添加拦截器
 instance.interceptors.response.use(
   result => {
@@ -33,7 +37,12 @@ instance.interceptors.response.use(
     return Promise.reject(result.data)
   },
   err => {
-    alert('服务异常')
+    if (err.response.status === 401) {
+      ElMessage.error("请先登录")
+      routes.push('/login')
+    } else {
+      ElMessage.error("服务异常")
+    }
     return Promise.reject(err);
   }
 )

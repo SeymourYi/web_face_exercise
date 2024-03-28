@@ -1,6 +1,4 @@
 <script setup>
-import Login from '@/views/Login.vue'
-import layout from '@/views/layout.vue'
 
 </script>
 
