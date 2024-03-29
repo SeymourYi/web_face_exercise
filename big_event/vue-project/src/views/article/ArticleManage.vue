@@ -40,7 +40,6 @@ ArticleCategoryList();
             <div class="header">
                 <span>文章分类</span>
                 <div class="extra">
-                    <el-button type="primary">添加分类</el-button>
                 </div>
             </div>
         </template>

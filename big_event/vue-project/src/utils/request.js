@@ -1,5 +1,7 @@
 import { ElMessage } from 'element-plus'
 //导入
+import router from '@/router'
+
 import axios from 'axios'
 import { useTokenStore } from '@/stores/token'
 const baseURL = 'http://localhost:8080'
@@ -19,10 +21,6 @@ instance.interceptors.request.use(
     Promise.reject(err)
   }
 )
-
-// import { useRoute } from 'vue-router'
-// const router = useRoute()
-import routes from '@/router'
 //添加拦截器
 instance.interceptors.response.use(
   result => {
@@ -39,7 +37,7 @@ instance.interceptors.response.use(
   err => {
     if (err.response.status === 401) {
       ElMessage.error("请先登录")
-      routes.push('/login')
+      router.push('/login')
     } else {
       ElMessage.error("服务异常")
     }
