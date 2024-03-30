@@ -5,34 +5,22 @@ import {
 } from '@element-plus/icons-vue'
 import { ref } from 'vue'
 const categorys = ref([
-    {
-        "id": 3,
-        "categoryName": "美食",
-        "categoryAlias": "my",
-        "createTime": "2023-09-02 12:06:59",
-        "updateTime": "2023-09-02 12:06:59"
-    },
-    {
-        "id": 4,
-        "categoryName": "娱乐",
-        "categoryAlias": "yl",
-        "createTime": "2023-09-02 12:08:16",
-        "updateTime": "2023-09-02 12:08:16"
-    },
-    {
-        "id": 5,
-        "categoryName": "军事",
-        "categoryAlias": "js",
-        "createTime": "2023-09-02 12:08:33",
-        "updateTime": "2023-09-02 12:08:33"
-    }
+
 ])
-import { ArticleCategoryListService } from '@/api/article.js'
+import { ArticleCategoryListService, ArticleCategoryAddService } from '@/api/article.js'
+import { ElMessage } from 'element-plus';
 const ArticleCategoryList = async () => {
     let result = await ArticleCategoryListService();
     categorys.value = result.data;
+    console.log(categorys.value[0].createTime);
 }
 ArticleCategoryList();
+const addCategory = async (category) => {
+    let result = await ArticleCategoryAddService(category.value);
+    ElMessage.success("成功")
+    ArticleCategoryList();
+
+}
 </script>
 <template>
     <el-card class="page-container">
@@ -40,15 +28,18 @@ ArticleCategoryList();
             <div class="header">
                 <span>审核管理</span>
                 <div class="extra">
+                    <el-button type="primary" @click="addCategory">
+                        添加分类
+                    </el-button>
                 </div>
             </div>
         </template>
         <el-table :data="categorys" style="width: 100%">
-            <el-table-column prop="date" label="姓名" />
-            <el-table-column prop="name" label="性别" />
-            <el-table-column prop="address" label="学号" width="180" />
-            <el-table-column prop="address" label="入学时间" width="180" />
-            <el-table-column prop="address" label="毕业时间" width="180" />
+            <el-table-column prop="categoryAlias" label="姓名" />
+            <el-table-column prop="categoryName" label="性别" />
+            <el-table-column prop="createTime" label="学号" width="180" />
+            <el-table-column prop="createUser" label="入学时间" width="180" />
+            <el-table-column prop="updateTime" label="毕业时间" width="180" />
             <el-table-column prop="address" label="层次" width="180" />
             <el-table-column prop="address" label="出生日期" width="180" />
             <el-table-column prop="address" label="身份证号" width="180" />
@@ -79,5 +70,6 @@ ArticleCategoryList();
         align-items: center;
         justify-content: space-between;
     }
+
 }
 </style>

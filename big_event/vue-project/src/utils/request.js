@@ -4,7 +4,7 @@ import router from '@/router'
 
 import axios from 'axios'
 import { useTokenStore } from '@/stores/token'
-const baseURL = 'http://localhost:8080'
+const baseURL = '/api'
 const instance = axios.create({ baseURL })
 //请求拦截器
 instance.interceptors.request.use(
