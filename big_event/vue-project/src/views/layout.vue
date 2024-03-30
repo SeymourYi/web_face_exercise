@@ -32,7 +32,7 @@ import {
             </el-icon>
             <span>管理员中心</span>
           </template>
-          <el-menu-item>
+          <el-menu-item index="/article/changepassword">
             <el-icon>
               <EditPen />
             </el-icon>

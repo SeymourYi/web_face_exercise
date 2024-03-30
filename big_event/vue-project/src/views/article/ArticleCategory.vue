@@ -16,12 +16,22 @@ const ArticleCategoryList = async () => {
 ArticleCategoryList();
 const categoryModel = ref({
     student_id: '',
-    name: ''
+    name: '',
+    sex: '',
+    birthdate: '',
+    society_id: '',
+    major: '',
+    level: '',
+    system_type: '',
+    join_date: '',
+    end_date: '',
+    Certification: 0,
+    isdelete: 0
 })
 const addCategory = async () => {
     // debugger
     let result = await ArticleCategoryAddService(categoryModel.value);
-    ElMessage.success("添加成功ssssssss")
+    ElMessage.success("添加成功")
     ArticleCategoryList();
     dialogVisible.value = false
 
@@ -48,7 +58,7 @@ const rules = {
                 <span>审核管理</span>
                 <div class="extra">
                     <el-button type="primary" @click="dialogVisible = true">
-                        添加分类
+                        手动添加
                     </el-button>
                 </div>
             </div>
@@ -85,11 +95,35 @@ const rules = {
         <!-- 添加分类弹窗 -->
         <el-dialog v-model="dialogVisible" title="添加弹层" width="30%">
             <el-form :model="categoryModel" :rules="rules" label-width="100px" style="padding-right: 30px">
-                <el-form-item label="分类名称" prop="student_id">
+                <el-form-item label="学号" prop="student_id">
                     <el-input v-model="categoryModel.student_id" minlength="1" maxlength="10"></el-input>
                 </el-form-item>
-                <el-form-item label="分类别名" prop="name">
+                <el-form-item label="姓名" prop="name">
                     <el-input v-model="categoryModel.name" minlength="1" maxlength="15"></el-input>
+                </el-form-item>
+                <el-form-item label="性别" prop="sex">
+                    <el-input v-model="categoryModel.sex" minlength="1" maxlength="15"></el-input>
+                </el-form-item>
+                <el-form-item label="出生日期" prop="birthdate">
+                    <el-input v-model="categoryModel.birthdate" minlength="1" maxlength="15"></el-input>
+                </el-form-item>
+                <el-form-item label="身份证号" prop="society_id">
+                    <el-input v-model="categoryModel.society_id" minlength="1" maxlength="15"></el-input>
+                </el-form-item>
+                <el-form-item label="专业" prop="major">
+                    <el-input v-model="categoryModel.major" minlength="1" maxlength="15"></el-input>
+                </el-form-item>
+                <el-form-item label="层次" prop="level">
+                    <el-input v-model="categoryModel.level" minlength="1" maxlength="15"></el-input>
+                </el-form-item>
+                <el-form-item label="学制" prop="system_type">
+                    <el-input v-model="categoryModel.system_type" minlength="1" maxlength="15"></el-input>
+                </el-form-item>
+                <el-form-item label="入学日期" prop="join_date">
+                    <el-input v-model="categoryModel.join_date" minlength="1" maxlength="15"></el-input>
+                </el-form-item>
+                <el-form-item label="毕业日期" prop="end_date">
+                    <el-input v-model="categoryModel.end_date" minlength="1" maxlength="15"></el-input>
                 </el-form-item>
             </el-form>
             <template #footer>

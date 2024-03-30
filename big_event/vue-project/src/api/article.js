@@ -15,3 +15,10 @@ export const ArticleCategoryListService = () => {
 export const ArticleCategoryAddService = (category) => {
   return request.post('/student/add', category)
 }
+export const getStudentSearchSservice = (Conditions) => {
+  console.log("123" + Conditions);
+
+  return request.get('/student/search', { params: Conditions },)
+
+  // return await axios.get('http://localhost:8080/student/search', { params: { Conditions } }
+}
