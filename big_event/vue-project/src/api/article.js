@@ -15,6 +15,9 @@ export const ArticleCategoryListService = () => {
 export const ArticleCategoryAddService = (category) => {
   return request.post('/student/add', category)
 }
+export const ArticleCategoryundataService = (category) => {
+  return request.patch('/student/updatePwd', category)
+}
 export const getStudentSearchSservice = (Conditions) => {
   console.log("123" + Conditions);
 

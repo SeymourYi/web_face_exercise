@@ -3,48 +3,29 @@ import { User, Lock } from '@element-plus/icons-vue'
 import { ref } from 'vue'
 import { ElMessage } from 'element-plus'
 import { useRouter } from 'vue-router'
-import { useTokenStore } from '@/stores/token.js'
-import { userRegisterservice, adminLoginService } from '@/api/admin.js'
+import { ArticleCategoryundataService } from '@/api/article.js'
 const router = useRouter()
-const tokenStore = useTokenStore()
 //控制注册与登录表单的显示， 默认显示注册
 // const isRegister = ref(false)
-let adminData = ref({
-  username: '',
-  password: '',
-})
-let changeData = ref({
-  old_pwd: '',
-  new_pwd: '',
-  re_pwd: ''
+const changeData = ref({
+  old_Pwd: '',
+  new_Pwd: ''
 })
 
-const checkRePassword = (rule, value, callback) => {
-  if (value === '') {
-    callback(new Error('请再次输入密码'))
-  } else if (value != adminData.value.password) {
-    callback(new Error('两次密码不一致'))
-  } else {
-    callback()
-  }
-}
 
 const rules = {
-  username: [
-    { required: true, message: '请输入管理员名', trigger: 'blur' },
-    { min: 1, max: 16, message: '长度为1-16位非空字符', trigger: 'blur' }
+  old_Pwd: [
+    { required: true, message: '请输入原密码', trigger: 'blur' },
+    { min: 6, max: 16, message: '长度为6-16位非空字符', trigger: 'blur' }
   ],
-  password: [
-    { required: true, message: '请输入密码', trigger: 'blur' },
-    { min: 1, max: 16, message: '长度为1-16位非空字符 ', trigger: 'blur' }
-  ],
-  repasswod: [
-    { validator: checkRePassword, trigger: 'blur' }
+  new_Pwd: [
+    { required: true, message: '请输入新密码', trigger: 'blur' },
+    { min: 6, max: 16, message: '长度为6-16位非空字符 ', trigger: 'blur' }
   ]
 }
 
-const register = async () => {
-  let result = await userRegisterservice(adminData.value)
+const changePwd = async () => {
+  await ArticleCategoryundataService(changeData.value)
 
   // if (result.code == 0) {
   //   alert(
@@ -53,41 +34,30 @@ const register = async () => {
   //   alert("注册失败")
   // }
 
-  ElMessage.success(result.data.message ? result.data.message : "登录成功")
+  ElMessage.success(result.data.message ? result.data.message : "操作成功")
+  router.push('/login')
   // alert(result.data.message ? result.data.message : "登录成功")
 }
 
-const login = async () => {
-  let result = await adminLoginService(adminData.value);
 
-  tokenStore.setToken(result.data)
-  // if (result.code == 0) {
-  //   alert(result.msg ? result.msg : "登录成功")
-  // } else {
-  //   alert(result.message ? result.message : "登录失败")
-  // }
-  ElMessage.success("登录成功")
-  router.push('/article/student')
-  // alert(result.data.message ? result.data.message : "登录成功")
-}
 </script>
 
 <template>
   <el-row class="login-page">
     <!-- <el-col :span="12" class="bg"></el-col> -->
     <el-col :span="6" :offset="8" class="form">
-      <el-form ref="form" size="large" autocomplete="off" :model="adminData" :rules="rules">
+      <el-form ref="form" size="large" autocomplete="off" :model="changeData" :rules="rules">
         <el-form-item>
           <h1>管理员密码修改</h1>
         </el-form-item>
 
-        <el-form-item prop="password">
+        <el-form-item prop="old_Pwd">
           <el-input name="password" :prefix-icon="Lock" type="password" placeholder="请输当前入密码"
-            v-model="adminData.password"></el-input>
+            v-model="changeData.old_Pwd"></el-input>
         </el-form-item>
-        <el-form-item prop="password">
+        <el-form-item prop="new_Pwd">
           <el-input name="password" :prefix-icon="Lock" type="password" placeholder="请输新的入密码"
-            v-model="adminData.password"></el-input>
+            v-model="changeData.new_Pwd"></el-input>
         </el-form-item>
 
         <el-form-item class="flex">
@@ -95,7 +65,7 @@ const login = async () => {
         </el-form-item>
         <!-- 登录按钮 -->
         <el-form-item>
-          <el-button class="button" type="primary" auto-insert-space @click="login">修改密码</el-button>
+          <el-button class="button" type="primary" auto-insert-space @click="changePwd">修改密码</el-button>
         </el-form-item>
       </el-form>
     </el-col>
