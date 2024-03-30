@@ -8,7 +8,9 @@ export const ArticleCategoryListService = () => {
   //     'Authorization': tokenStore.token
   //   }
   // })
-  return request.get('/category')
+  // return request.get('/category')
+  return request.get('/student/getall')
+
 }
 export const ArticleCategoryAddService = (category) => {
   return request.post('/category', category)
