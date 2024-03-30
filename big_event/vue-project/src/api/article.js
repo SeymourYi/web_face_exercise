@@ -13,5 +13,5 @@ export const ArticleCategoryListService = () => {
 
 }
 export const ArticleCategoryAddService = (category) => {
-  return request.post('/category', category)
+  return request.post('/student/add', category)
 }

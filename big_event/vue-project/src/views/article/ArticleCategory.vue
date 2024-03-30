@@ -15,12 +15,13 @@ const ArticleCategoryList = async () => {
 }
 ArticleCategoryList();
 const categoryModel = ref({
-    categoryName: '',
-    categoryAlias: ''
+    student_id: '',
+    name: ''
 })
 const addCategory = async () => {
+    // debugger
     let result = await ArticleCategoryAddService(categoryModel.value);
-    ElMessage.success("添加成功")
+    ElMessage.success("添加成功ssssssss")
     ArticleCategoryList();
     dialogVisible.value = false
 
@@ -32,10 +33,10 @@ const dialogVisible = ref(false)
 
 //添加分类表单校验
 const rules = {
-    categoryName: [
+    student_id: [
         { required: true, message: '请输入分类名称', trigger: 'blur' },
     ],
-    categoryAlias: [
+    name: [
         { required: true, message: '请输入分类别名', trigger: 'blur' },
     ]
 }
@@ -84,11 +85,11 @@ const rules = {
         <!-- 添加分类弹窗 -->
         <el-dialog v-model="dialogVisible" title="添加弹层" width="30%">
             <el-form :model="categoryModel" :rules="rules" label-width="100px" style="padding-right: 30px">
-                <el-form-item label="分类名称" prop="categoryName">
-                    <el-input v-model="categoryModel.categoryName" minlength="1" maxlength="10"></el-input>
+                <el-form-item label="分类名称" prop="student_id">
+                    <el-input v-model="categoryModel.student_id" minlength="1" maxlength="10"></el-input>
                 </el-form-item>
-                <el-form-item label="分类别名" prop="categoryAlias">
-                    <el-input v-model="categoryModel.categoryAlias" minlength="1" maxlength="15"></el-input>
+                <el-form-item label="分类别名" prop="name">
+                    <el-input v-model="categoryModel.name" minlength="1" maxlength="15"></el-input>
                 </el-form-item>
             </el-form>
             <template #footer>
