@@ -34,7 +34,7 @@ const changePwd = async () => {
   //   alert("注册失败")
   // }
 
-  ElMessage.success(result.data.message ? result.data.message : "操作成功")
+  ElMessage.success("操作成功")
   router.push('/login')
   // alert(result.data.message ? result.data.message : "登录成功")
 }
@@ -46,18 +46,16 @@ const changePwd = async () => {
   <el-row class="login-page">
     <!-- <el-col :span="12" class="bg"></el-col> -->
     <el-col :span="6" :offset="8" class="form">
-      <el-form ref="form" size="large" autocomplete="off" :model="changeData" :rules="rules">
+      <el-form :model="changeData" ref="form" size="large" autocomplete="off" :rules="rules">
         <el-form-item>
           <h1>管理员密码修改</h1>
         </el-form-item>
 
         <el-form-item prop="old_Pwd">
-          <el-input name="password" :prefix-icon="Lock" type="password" placeholder="请输当前入密码"
-            v-model="changeData.old_Pwd"></el-input>
+          <el-input :prefix-icon="Lock" type="password" placeholder="请输当前入密码" v-model="changeData.old_Pwd"></el-input>
         </el-form-item>
         <el-form-item prop="new_Pwd">
-          <el-input name="password" :prefix-icon="Lock" type="password" placeholder="请输新的入密码"
-            v-model="changeData.new_Pwd"></el-input>
+          <el-input v-model="changeData.new_Pwd" :prefix-icon="Lock" type="password" placeholder="请输新的入密码"></el-input>
         </el-form-item>
 
         <el-form-item class="flex">
