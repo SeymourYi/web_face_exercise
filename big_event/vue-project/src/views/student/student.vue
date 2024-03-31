@@ -236,16 +236,16 @@ const ArticleCategoryList = async () => {
 }
 ArticleCategoryList();
 const categoryModel = ref({
-  student_id: '',
+  studentid: '',
   name: '',
   sex: '',
   birthdate: '',
-  society_id: '',
+  societyid: '',
   major: '',
   level: '',
-  system_type: '',
-  join_date: '',
-  end_date: '',
+  systemtype: '',
+  joindate: '',
+  enddate: '',
   Certification: 0,
   isdelete: 0
 })
@@ -332,22 +332,22 @@ const rules = {
     <el-table :data="categorys" style="width: 100%">
       <el-table-column prop="name" label="姓名" />
       <el-table-column prop="sex" label="性别" />
-      <el-table-column prop="student_id" label="学号" width="180" />
-      <el-table-column prop="createUser" label="入学时间" width="180" />
-      <el-table-column prop="updateTime" label="毕业时间" width="180" />
+      <el-table-column prop="studentid" label="学号" width="180" />
+      <el-table-column prop="joindate" label="入学时间" width="180" />
+      <el-table-column prop="enddate" label="毕业时间" width="180" />
       <el-table-column prop="level" label="层次" width="180" />
       <el-table-column prop="birthdate" label="出生日期" width="180" />
-      <el-table-column prop="address" label="身份证号" width="180" />
+      <el-table-column prop="societyid" label="身份证号" width="180" />
       <el-table-column prop="major" label="专业" width="180" />
-      <el-table-column prop="address" label="学制" width="180" />
+      <el-table-column prop="systemtype" label="学制" width="180" />
       <!-- <el-table-column prop="address" label="学制" width="180" /> -->
       <!-- <el-table-column prop="address" label="身份证号" width="180" /> -->
-      <el-table-column prop="address" label="审核是否通过" width="180">
+      <!-- <el-table-column prop="address" label="审核是否通过" width="180">
         <template #default="{ row }">
-          <el-button :icon="Edit" circle plain type="primary"></el-button>
+          <el-button :icon="Edit" circle plain type="primary" @click="dialogVisible = true"></el-button>
           <el-button :icon="Delete" circle plain type="danger"></el-button>
         </template>
-      </el-table-column>
+      </el-table-column> -->
       <template #empty>
         <el-empty description="没有数据" />
       </template>
@@ -361,8 +361,8 @@ const rules = {
     <!-- 添加分类弹窗 -->
     <el-dialog v-model="dialogVisible" title="添加弹层" width="30%">
       <el-form :model="categoryModel" :rules="rules" label-width="100px" style="padding-right: 30px">
-        <el-form-item label="学号" prop="student_id">
-          <el-input v-model="categoryModel.student_id" minlength="1" maxlength="10"></el-input>
+        <el-form-item label="学号" prop="studentid">
+          <el-input v-model="categoryModel.studentid" minlength="1" maxlength="10"></el-input>
         </el-form-item>
         <el-form-item label="姓名" prop="name">
           <el-input v-model="categoryModel.name" minlength="1" maxlength="15"></el-input>
@@ -373,8 +373,8 @@ const rules = {
         <el-form-item label="出生日期" prop="birthdate">
           <el-input v-model="categoryModel.birthdate" minlength="1" maxlength="15"></el-input>
         </el-form-item>
-        <el-form-item label="身份证号" prop="society_id">
-          <el-input v-model="categoryModel.society_id" minlength="1" maxlength="15"></el-input>
+        <el-form-item label="身份证号" prop="societyid">
+          <el-input v-model="categoryModel.societyid" minlength="1" maxlength="15"></el-input>
         </el-form-item>
         <el-form-item label="专业" prop="major">
           <el-input v-model="categoryModel.major" minlength="1" maxlength="15"></el-input>
@@ -382,14 +382,14 @@ const rules = {
         <el-form-item label="层次" prop="level">
           <el-input v-model="categoryModel.level" minlength="1" maxlength="15"></el-input>
         </el-form-item>
-        <el-form-item label="学制" prop="system_type">
-          <el-input v-model="categoryModel.system_type" minlength="1" maxlength="15"></el-input>
+        <el-form-item label="学制" prop="systemtype">
+          <el-input v-model="categoryModel.systemtype" minlength="1" maxlength="15"></el-input>
         </el-form-item>
-        <el-form-item label="入学日期" prop="join_date">
-          <el-input v-model="categoryModel.join_date" minlength="1" maxlength="15"></el-input>
+        <el-form-item label="入学日期" prop="joindate">
+          <el-input v-model="categoryModel.joindate" minlength="1" maxlength="15"></el-input>
         </el-form-item>
-        <el-form-item label="毕业日期" prop="end_date">
-          <el-input v-model="categoryModel.end_date" minlength="1" maxlength="15"></el-input>
+        <el-form-item label="毕业日期" prop="enddate">
+          <el-input v-model="categoryModel.enddate" minlength="1" maxlength="15"></el-input>
         </el-form-item>
       </el-form>
       <template #footer>

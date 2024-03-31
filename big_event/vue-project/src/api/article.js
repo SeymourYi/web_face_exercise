@@ -19,9 +19,14 @@ export const ArticleCategoryundataService = (category) => {
   return request.patch('/student/updatePwd', category)
 }
 export const getStudentSearchSservice = (Conditions) => {
-  console.log("123" + Conditions);
 
   return request.get('/student/search', { params: Conditions },)
 
   // return await axios.get('http://localhost:8080/student/search', { params: { Conditions } }
+}
+export const ArticleCategoryOpertionDeletService = (category) => {
+  return request.post('/student/Delet', category)
+}
+export const ArticleCategoryOpertionproveService = (category) => {
+  return request.post('/student/prove', category)
 }
