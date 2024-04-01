@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="xlsx.full.min.js"></script>
+</head>
+
+<body>
+  <input type="file" onchange="readExcel(this)" />
+  <script>
+    function readExcel(file_obj) {
+      var reader = new FileReader();
+      var file = file_obj.files[0];
+      reader.readAsBinaryString(file);
+
+      reader.onload = function (e) {
+        var data = e.target.result;
+        var wb = XLSX.read(data, { type: 'binary' });
+
+        sheetName = wb.SheetNames[0]   // 获取文档中第一个sheet页签的名字
+        sheets = wb.Sheets[sheetName]   // 获sheet名页签下的数据
+        console.log(sheets);   // 返回sheet对象到控制台
+        /////////////////////////////////////////////将数据加工成一个[]返回给 下面这些代码这的要好好研究一下
+
+
+
+        const processedData = [];
+        console.log(Object.keys(sheets).filter(key => key.startsWith('A')).length);
+        for (let i = 2; i <= Object.keys(sheets).filter(key => key.startsWith('A')).length; i++) {
+          const rowData = {
+            studentid: Number(sheets[`A${i}`].v),
+            name: sheets[`B${i}`].v,
+            sex: sheets[`C${i}`].v === '男' ? '男' : '女',
+            birthdate: sheets[`D${i}`].v,
+            societyid: '',
+            major: sheets[`F${i}`].v,
+            level: sheets[`G${i}`].v,
+            systemtype: sheets[`H${i}`].v,
+            joindate: sheets[`I${i}`].v,
+            enddate: sheets[`J${i}`].v,
+            Certification: 0,
+            isdelete: 0,
+          };
+
+
+
+          processedData.push(rowData);
+
+
+          console.log(processedData); if (processedData.length === 100) {
+            console.log(processedData);
+            processedData.length = 0; // 清空数组
+          }
+        }
+
+        // 处理剩余数据（如果不足100个）
+        if (processedData.length > 0) {
+          console.log(processedData);
+          processedData.length = 0; // 清空数组
+        }
+
+      };
+    }
+  </script>
+</body>
+
+</html>

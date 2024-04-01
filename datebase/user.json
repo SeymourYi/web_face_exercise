@@ -50,3 +50,37 @@
     "update_time": "2024-01-19 01:26:06"
   }
 ]
+
+
+
+
+[
+  {
+    "studentid": 890159,
+    "name": "梅二伍",
+    "sex": "男",
+    "birthdate": "196907",
+    "societyid": "",
+    "major": "数学教育",
+    "level": "专科",
+    "systemtype": "2",
+    "joindate": "198809",
+    "enddate": "199107",
+    "Certification": 0,
+    "isdelete": 0
+  },
+  {
+    "studentid": 890387,
+    "name": "高彩萍",
+    "sex": "女",
+    "birthdate": "196908",
+    "societyid": "",
+    "major": "英语教育",
+    "level": "专科",
+    "systemtype": "2",
+    "joindate": "198809",
+    "enddate": "199107",
+    "Certification": 0,
+    "isdelete": 0
+  }
+]
