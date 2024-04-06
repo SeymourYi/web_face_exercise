@@ -9,6 +9,7 @@ import {
   SwitchButton,
   CaretBottom
 } from '@element-plus/icons-vue'
+import excel from '@/views/student/excel.vue'
 </script>
 
 <template>
@@ -53,7 +54,29 @@ import {
       <!-- 中间区域 -->
       <el-main>
         <!-- <div style="width: 1290px; height: 570px;border: 1px solid red;"> -->
-        <router-view></router-view>
+
+
+
+
+        <excel />
+
+        <!-- <router-view></router-view> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         <!-- </div> -->
       </el-main>
       <!-- 底部区域 -->

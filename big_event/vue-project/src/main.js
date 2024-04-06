@@ -1,5 +1,5 @@
 import './assets/main.scss'
-
+import '@/utils/xlsx.full.min.js'
 import { createApp } from 'vue'
 import App from './App.vue'
 import ElementPlus from 'element-plus'

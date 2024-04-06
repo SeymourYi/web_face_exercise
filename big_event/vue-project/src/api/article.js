@@ -30,3 +30,6 @@ export const ArticleCategoryOpertionDeletService = (category) => {
 export const ArticleCategoryOpertionproveService = (category) => {
   return request.post('/student/prove', category)
 }
+export const ArticleCategoryAddExcelService = (category) => {
+  return request.post('/student/addExcel', category)
+}
