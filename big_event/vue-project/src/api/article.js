@@ -31,5 +31,7 @@ export const ArticleCategoryOpertionproveService = (category) => {
   return request.post('/student/prove', category)
 }
 export const ArticleCategoryAddExcelService = (category) => {
+  console.log(category[1].name + "111111333");
+  console.log(category[0].sex + "111111333");
   return request.post('/student/addExcel', category)
 }

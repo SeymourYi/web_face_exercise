@@ -221,6 +221,28 @@ const tableData = ref({
 
 <script setup>
 
+const dialogTableVisible = ref(false)
+const dialogFormVisible = ref(false)
+const formLabelWidth = '140px'
+
+
+const currentPage1 = ref(5)
+const currentPage2 = ref(5)
+const currentPage3 = ref(5)
+const currentPage4 = ref(2)
+const pageSize2 = ref(100)
+const pageSize3 = ref(100)
+const pageSize4 = ref(5)
+const small = ref(false)
+const background = ref(false)
+const disabled = ref(false)
+const total = ref(30)  //从数据库获取
+const handleSizeChange = () => {
+  console.log(`${val} items per page`)
+}
+const handleCurrentChange = () => {
+  console.log(`current page: ${val}`)
+}
 
 import {
   Edit,
@@ -232,10 +254,19 @@ const categorys = ref([
 ])
 import { ArticleCategoryListService, ArticleCategoryAddExcelService, getStudentSearchSservice, ArticleCategoryAddService } from '@/api/article.js'
 import { ElMessage } from 'element-plus';
+
 const ArticleCategoryList = async () => {
   let result = await ArticleCategoryListService();
   categorys.value = result.data;
 }
+
+
+
+
+
+
+
+
 ArticleCategoryList();
 const categoryModel = ref({
   studentid: '',
@@ -254,38 +285,67 @@ const categoryModel = ref({
 const aftersearchData = ref({
 
 })
-function readExcel(file_obj) {
-  var reader = new FileReader();
-  var file = file_obj.files[0];
+
+
+
+const searchData = ref({
+  name: ''
+})
+const addexcel = async (categoryModel) => {
+  // debugger
+
+
+
+
+
+  let result = await ArticleCategoryAddExcelService(categoryModel);
+  // console.log(categoryModel + "111111111");
+}
+const noSubmit = async () => {
+  let result = await ArticleCategoryListService();
+  categorys.value = result.data;
+}
+const onSubmit = async () => {
+  debugger
+  let result = await getStudentSearchSservice(searchData.value);
+  let a = []
+  a.push(result.data)
+  categorys.value = a;
+
+}
+//控制添加分类弹窗
+const dialogVisible = ref(false)
+const centerDialogVisible = ref(false)
+import XLSX from 'xlsx';
+function readExcel(event) {
+  const file = event.target.files[0];
+  const reader = new FileReader();
   reader.readAsBinaryString(file);
 
-  reader.onload = function (e) {
-    var data = e.target.result;
-    var wb = XLSX.read(data, { type: 'binary' });
+  reader.onload = (e) => {
+    const data = e.target.result;
+    const wb = XLSX.read(data, { type: 'binary' });
 
-    sheetName = wb.SheetNames[0]   // 获取文档中第一个sheet页签的名字
-    sheets = wb.Sheets[sheetName]   // 获sheet名页签下的数据
-    console.log(sheets);   // 返回sheet对象到控制台
-    /////////////////////////////////////////////将数据加工成一个[]返回给 下面这些代码这的要好好研究一下
+    const sheetName = wb.SheetNames[0]; // 获取文档中第一个sheet页签的名字
+    const sheets = wb.Sheets[sheetName]; // 获sheet名页签下的数据
+    console.log(sheets); // 返回sheet对象到控制台
 
-
-    let groupSize = 100
-    let loopthvalue = 0
+    const groupSize = 100;
+    let loopthvalue = 0;
     const processedData = [];
-    let startvalue = 0
+    let startvalue = 0;
     console.log(Object.keys(sheets).filter(key => key.startsWith('A')).length);
     //获得数据总长度
-    allLangth = Object.keys(sheets).filter(key => key.startsWith('A')).length
+    const allLength = Object.keys(sheets).filter(key => key.startsWith('A')).length;
     //分割成每十个一组
-    for (let index = 0; index < allLangth; index += groupSize) {
-      if (index + groupSize <= allLangth) {
-        loopthvalue = index + groupSize
-        startvalue = index
+    for (let index = 1; index < allLength; index += groupSize) {
+      if (index + groupSize <= allLength) {
+        loopthvalue = index + groupSize;
+        startvalue = index;
       } else {
-        loopthvalue = allLangth - loopthvalue
-        loopthvalue = index + loopthvalue
-        startvalue = index
-
+        loopthvalue = allLength - loopthvalue;
+        loopthvalue = index + loopthvalue;
+        startvalue = index;
       }
       //对每组进行操作
       for (let i = 1 + startvalue; i <= loopthvalue; i++) {
@@ -309,43 +369,12 @@ function readExcel(file_obj) {
       //输出后清空
       console.log(processedData[0]);
       console.log(processedData);
-
+      addexcel(processedData)
       processedData.splice(0, processedData.length);
     }
     console.log(processedData);
-  }
+  };
 }
-
-
-const searchData = ref({
-  name: ''
-})
-const addexcel = async () => {
-  // debugger
-
-
-
-
-
-  let result = await ArticleCategoryAddExcelService(categoryModel.value);
-  console.log(result);
-}
-const noSubmit = async () => {
-  let result = await ArticleCategoryListService();
-  categorys.value = result.data;
-}
-const onSubmit = async () => {
-  debugger
-  let result = await getStudentSearchSservice(searchData.value);
-  let a = []
-  a.push(result.data)
-  categorys.value = a;
-
-}
-//控制添加分类弹窗
-const dialogVisible = ref(false)
-const centerDialogVisible = ref(false)
-
 //添加分类数据模型
 
 //添加分类表单校验
@@ -376,10 +405,10 @@ const rules = {
             </span>
             <template #footer>
               <div class="dialog-footer">
-                <el-button @click="centerDialogVisible = false">取消</el-button>
-                <el-button type="primary" @click="centerDialogVisible = false, verify, addexcel">
-                  确认
-                </el-button>
+                <!-- <el-button @click="centerDialogVisible = false">取消</el-button> -->
+                <!-- <el-button type="primary" @click="centerDialogVisible = false, verify, addexcel, readExcel"> -->
+                <input type="file" @change="readExcel" />
+                <!-- </el-button> -->
               </div>
             </template>
           </el-dialog>
@@ -422,7 +451,10 @@ const rules = {
       </template>
     </el-table>
 
-
+    <el-pagination class="el-p" v-model:current-page="currentPage4" v-model:page-size="pageSize4"
+      :page-sizes="[5, 10, 15, 20]" :small="small" :disabled="disabled" :background="background"
+      layout="jumper,total, sizes, prev, pager, next" :total="total" @size-change="handleSizeChange"
+      @current-change="handleCurrentChange" />
 
 
 

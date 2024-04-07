@@ -58,9 +58,9 @@ import excel from '@/views/student/excel.vue'
 
 
 
-        <excel />
+        <!-- <excel /> -->
 
-        <!-- <router-view></router-view> -->
+        <router-view></router-view>
 
 
 

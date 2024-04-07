@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <input type="file" id="fileInput" accept=".xls,.xlsx">
+  <table>
+    <thead>
+      <tr>
+        <th>Fiscal Year</th>
+        <th>Quarter</th>
+        <th>Total (in $B)</th>
+      </tr>
+    </thead>
+    <tbody id="tbody"></tbody>
+  </table>
+  <script src="https://cdn.sheetjs.com/xlsx-0.20.2/package/dist/xlsx.full.min.js"></script>
+  <script>
+    document.getElementById('fileInput').addEventListener('change', function (event) {
+      const file = event.target.files[0];
+      const reader = new FileReader();
+      reader.onload = function (e) {
+        const data = new Uint8Array(e.target.result);
+        const workbook = XLSX.read(data, { type: 'array' });
+
+        /* get first worksheet */
+        const worksheet = workbook.Sheets[workbook.SheetNames[0]];
+        const raw_data = XLSX.utils.sheet_to_json(worksheet, { header: 1 });
+
+        /* fill years */
+        var last_year = 0;
+        raw_data.forEach(r => last_year = r[0] = (r[0] != null ? r[0] : last_year));
+
+        /* select data rows */
+        const rows = raw_data.filter(r => r[0] >= 2007 && r[0] <= 2023);
+
+        /* generate row objects */
+        const objects = rows.map(r => ({ FY: r[0], FQ: r[1], total: r[8] }));
+
+        const tbody = document.getElementById('tbody');
+        /* clear table body */
+        tbody.innerHTML = "";
+
+        /* add rows to table body */
+        objects.forEach(o => {
+          const row = document.createElement("TR");
+          row.innerHTML = `<td>${o.FY}</td><td>${o.FQ || ""}</td><td>${o.total}</td>`;
+          tbody.appendChild(row);
+        });
+      };
+      reader.readAsArrayBuffer(file);
+    });
+  </script>
+</body>
+
+</html>
