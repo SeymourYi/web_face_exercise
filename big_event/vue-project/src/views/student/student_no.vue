@@ -25,8 +25,8 @@ const categoryModel = ref({
   system_type: '',
   join_date: '',
   end_date: '',
-  Certification: 0,
-  isdelete: 0
+  Certification: '',
+  isdelete: ''
 })
 const addCategory = async () => {
   // debugger
@@ -112,9 +112,6 @@ const rules = {
           <el-button :icon="Delete" circle plain type="danger"></el-button>
         </template>
       </el-table-column>
-      <template #empty>
-        <el-empty description="没有数据" />
-      </template>
     </el-table>
 
 
@@ -123,7 +120,7 @@ const rules = {
 
 
     <!-- 添加分类弹窗 -->
-    <el-dialog v-model="dialogVisible" title="添加弹层" width="30%">
+    <!-- <el-dialog v-model="dialogVisible" title="添加弹层" width="30%">
       <el-form :model="categoryModel" :rules="rules" label-width="100px" style="padding-right: 30px">
         <el-form-item label="学号" prop="student_id">
           <el-input v-model="categoryModel.student_id" minlength="1" maxlength="10"></el-input>
@@ -162,7 +159,7 @@ const rules = {
           <el-button type="primary" @click="addCategory"> 确认 </el-button>
         </span>
       </template>
-    </el-dialog>
+    </el-dialog> -->
 
 
   </el-card>

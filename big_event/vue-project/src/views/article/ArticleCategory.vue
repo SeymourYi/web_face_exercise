@@ -67,6 +67,7 @@ const ClickDelettrue = async (row) => {
     await ArticleCategoryOpertionDeletService(changeData.value)
     ElMessage.success('删除成功')
     centerDialogVisibleDelet.value = false;
+    ArticleCategoryList();
 }
 
 //添加分类数据模型

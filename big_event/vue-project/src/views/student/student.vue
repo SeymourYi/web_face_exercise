@@ -224,7 +224,7 @@ const tableData = ref({
 const dialogTableVisible = ref(false)
 const dialogFormVisible = ref(false)
 const formLabelWidth = '140px'
-
+const allDataLength = ref(0)
 
 const currentPage1 = ref(5)
 const currentPage2 = ref(5)
@@ -236,11 +236,12 @@ const pageSize4 = ref(5)
 const small = ref(false)
 const background = ref(false)
 const disabled = ref(false)
-const total = ref(30)  //从数据库获取
-const handleSizeChange = () => {
+const total = ref(allDataLength)  //从数据库获取
+const val = ref(0)
+const handleSizeChange = (val) => {
   console.log(`${val} items per page`)
 }
-const handleCurrentChange = () => {
+const handleCurrentChange = (val) => {
   console.log(`current page: ${val}`)
 }
 
@@ -257,6 +258,7 @@ import { ElMessage } from 'element-plus';
 
 const ArticleCategoryList = async () => {
   let result = await ArticleCategoryListService();
+  let allDataLength = result.data.length
   categorys.value = result.data;
 }
 
@@ -267,7 +269,7 @@ const ArticleCategoryList = async () => {
 
 
 
-ArticleCategoryList();
+// ArticleCategoryList();
 const categoryModel = ref({
   studentid: '',
   name: '',
@@ -279,8 +281,8 @@ const categoryModel = ref({
   systemtype: '',
   joindate: '',
   enddate: '',
-  Certification: 0,
-  isdelete: 0
+  Certification: '',
+  isdelete: ''
 })
 const aftersearchData = ref({
 
@@ -306,12 +308,11 @@ const noSubmit = async () => {
   categorys.value = result.data;
 }
 const onSubmit = async () => {
-  debugger
+
   let result = await getStudentSearchSservice(searchData.value);
   let a = []
   a.push(result.data)
   categorys.value = a;
-
 }
 //控制添加分类弹窗
 const dialogVisible = ref(false)
@@ -373,6 +374,7 @@ function readExcel(event) {
       processedData.splice(0, processedData.length);
     }
     console.log(processedData);
+    ElMessage.success("添加成功")
   };
 }
 //添加分类数据模型
