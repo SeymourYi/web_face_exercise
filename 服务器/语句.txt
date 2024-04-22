@@ -1,6 +1,16 @@
+docker build -t image_name .
+
+docker run -d --name container_name image_name
+
+
+
+docker run -d --name car -p 8080:8080 car
+
+
 java -jar big_event_Stu1-1.0-SNAPSHOT.jar
  docker exec -it mysql bash
 mysql -h 172.17.0.2 -u root -p123
+CREATE DATABASE test;
 SHOW DATABASES;
 DESCRIBE table_name;
 quit
@@ -8,7 +18,22 @@ SELECT * FROM students;
 
 RENAME TABLE users TO new_users;
 rm -rf java0
-docker run --name mysql -e MYSQL_ROOT_PASSWORD=123 -d mysql:latest
+
+docker run --name mysql -e MYSQL_ROOT_PASSWORD=123456 -d mysql:latest
+
+
+docker run --name mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=123456 -d mysql
+
+
+
+
+docker exec -it mysql bash
+
+
+
+
+
+
 docker rm mysql
 
 docker run -d \
@@ -50,11 +75,6 @@ CREATE TABLE users (
 
 INSERT INTO users (id, username, password, nickname, email, user_pic, create_time, update_time)
 VALUES
-    (1, 'a1345', '2345', '', '', '', '2024-01-19 01:26:06', '2024-01-19 01:26:06'),
-    (2, 'b1345', '81b073de9370ea873f548e31b8adc081', '', '', '', '2024-01-19 01:28:20', '2024-01-19 01:28:20'),
-    (3, 'aa3345', 'e10adc3949ba59abbe56e057f20f883e', '', '', 'https://big-event-gwd.oss-cn-beijing.aliyuncs.com', '2024-01-19 03:28:36', '2024-01-21 23:53:27'),
-    (4, '123456', 'fcea920f7412b5da7be0cf42b8c93759', '', '', '', '2024-01-23 14:23:58', '2024-01-24 00:12:10'),
-    (5, '123456a', 'e10adc3949ba59abbe56e057f20f883e', '', '', '', '2024-02-29 22:12:47', '2024-02-29 22:12:47'),
     (6, '123456789', '25f9e794323b453885f5181f1b624d0b', '', '', '', '2024-03-20 16:40:26', '2024-03-20 16:40:26');
 
 
@@ -116,3 +136,36 @@ CMD ["java", "-jar", "/root/java/big_event.jar"]
 docker build -t car .
 docker run -p 8080:8080 car
 ++++++++++++++++++++++++++++++++++++++++++++++++
+docker run -d -p 6379:6379 --name redis redis
+
+
+
+
+
+
+
+
+docker run -d \
+    --restart=always \
+    --name myredis \
+    -p 6379:6379 \
+    -v /root/redis/data:/data \
+    -v /root/redis/config/redis.conf:/etc/redis/redis.conf \
+    redis redis-server /etc/redis/redis.conf
+
+    docker run --name some-redis -d redis
+    +++++++++++++++++++++++++++++++++++++++++++++++++++
+    <<  docker 官方教程语句  >>
+
+
+
+
+
+
+     构建某个：docker build -t welcome-to-docker（自定义名字） .
+     
+    多个任务构建成一个的： docker compose up -d
+    很牛逼的动态调试：docker compose watch
+      要先：docker login
+    为镜像打标签：docker tag docker/welcome-to-docker nvia/welcome-to-docker
+    已经标记的镜像推送：docker push nvia/welcome-to-docker
